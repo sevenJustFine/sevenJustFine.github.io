@@ -22,6 +22,11 @@ tags:
 
 ![微信图片_201908271606405](https://image.liqile.top/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png)
 
+当前我选择nginx和CentOS
+
+![1566954842(1)](http://pvyq6aryy.bkt.clouddn.com/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png)
+
+
 2.2 根据提示安装certbot
 
 ![微信图片_201908271606406](https://image.liqile.top/2019/08/27/6cd45f70e2b629384076408358165f0e.png)
@@ -98,7 +103,7 @@ certbot revoke  --cert-path /etc/letsencrypt/live/www.test.com/cert.pem
 
 ### 安装中可能出现的问题
 
-1.cryptography TypeError: from_buffer() cannot return the address
+1.cryptography TypeError: from_buffer() cannot return the address........
 
 
 解决：
@@ -111,9 +116,12 @@ pip install --upgrade cryptography
 
 ````
 
-2. 
+2. UnicodeDecodeError: 'ascii' codec can`t decode byte 0xe7 in position 14 ......
+
 ![4e179ff3a1ffaae42560f34528adb37](https://image.liqile.top/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png)
 
-/usr/lib64/python2.7  修改 mimetypes.py
-
+ 修改 /usr/lib64/python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码
+```` 
 if sys.getdefaultencoding() != 'utf-8': reload(sys) sys.setdefaultencoding('utf-8')
+````
+
