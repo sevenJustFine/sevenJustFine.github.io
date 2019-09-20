@@ -24,7 +24,7 @@ tags:
 
 当前我选择nginx和CentOS
 
-![1566954842(1)](http://pvyq6aryy.bkt.clouddn.com/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png)
+![1566954842(1)](https://image.liqile.top/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png)
 
 
 2.2 根据提示安装certbot
@@ -118,10 +118,15 @@ pip install --upgrade cryptography
 
 2. UnicodeDecodeError: 'ascii' codec can`t decode byte 0xe7 in position 14 ......
 
-![4e179ff3a1ffaae42560f34528adb37](https://image.liqile.top/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png)
+>>![4e179ff3a1ffaae42560f34528adb37](https://image.liqile.top/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png)
 
  修改 /usr/lib64/python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码
 ```` 
 if sys.getdefaultencoding() != 'utf-8': reload(sys) sys.setdefaultencoding('utf-8')
 ````
+
+3. ImportError: 'pyOpenSSL' module missing required functionality. Try upgrading to v0.14 or newer.
+
+
+
 
