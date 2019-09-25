@@ -33,6 +33,7 @@
   <%- css('css/style') %>
   <!--自定义favicon图标-->
   <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
   <!--百度统计代码-->
   <script>
   var _hmt = _hmt || [];
@@ -43,5 +44,22 @@
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
 
 </head>
