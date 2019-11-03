@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>php 删除字符串中的汉字,保留数字和字母 | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="需要从爬虫爬取的n多字符串中获取微信号 微信号规则:  微信号是微信的唯一凭证,只能设置1次 可使用6-20个字母,数字,下划线和减号 必须以字母开头(字母不区分大小写) 不支持设置中文  1234567891011121314151617181920212223242526272829303132$Model = new Wechat();      $data = $Model-&amp;gt;sel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php 删除字符串中的汉字,保留数字和字母">
+<meta property="og:url" content="http://www.zichu.wang/2019/09/17/php-删除字符串中的汉字-保留数字和字母/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="需要从爬虫爬取的n多字符串中获取微信号 微信号规则:  微信号是微信的唯一凭证,只能设置1次 可使用6-20个字母,数字,下划线和减号 必须以字母开头(字母不区分大小写) 不支持设置中文  1234567891011121314151617181920212223242526272829303132$Model = new Wechat();      $data = $Model-&amp;gt;sel">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-21T01:30:55.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php 删除字符串中的汉字,保留数字和字母">
+<meta name="twitter:description" content="需要从爬虫爬取的n多字符串中获取微信号 微信号规则:  微信号是微信的唯一凭证,只能设置1次 可使用6-20个字母,数字,下划线和减号 必须以字母开头(字母不区分大小写) 不支持设置中文  1234567891011121314151617181920212223242526272829303132$Model = new Wechat();      $data = $Model-&amp;gt;sel">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-php-删除字符串中的汉字-保留数字和字母" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/17/php-删除字符串中的汉字-保留数字和字母/" class="article-date">
+  <time datetime="2019-09-17T09:57:56.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php 删除字符串中的汉字,保留数字和字母
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要从爬虫爬取的n多字符串中获取微信号</p>
+<p>微信号规则:</p>
+<ul>
+<li>微信号是微信的唯一凭证,只能设置1次</li>
+<li>可使用6-20个字母,数字,下划线和减号</li>
+<li>必须以字母开头(字母不区分大小写)</li>
+<li>不支持设置中文</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$Model = <span class="keyword">new</span> Wechat(); </span><br><span class="line">     $data = $Model-&gt;select();</span><br><span class="line"></span><br><span class="line">     $new_data_arr = [];</span><br><span class="line">     <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $v) &#123;</span><br><span class="line">         $temp = [];</span><br><span class="line">         $result = preg_replace(<span class="string">'/([\x80-\xff]*)/i'</span>, <span class="string">''</span>, $v[<span class="string">'data'</span>]); <span class="comment">//删除汉字</span></span><br><span class="line">         $result = trim($result);<span class="comment">//删除空格</span></span><br><span class="line">         $result = str_replace(<span class="string">'~'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'?'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'.'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">':'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'/'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'\\'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">';'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'+'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'('</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">')'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'*'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">','</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'%'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">' '</span>, <span class="string">''</span>, $result);</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> ($result &amp;&amp; mb_strlen($result, <span class="string">'utf-8'</span>) &gt; <span class="number">5</span> &amp;&amp; mb_strlen($result, <span class="string">'utf-8'</span>) &lt; <span class="number">21</span>) &#123;</span><br><span class="line">             $temp[<span class="string">'id'</span>] = $v[<span class="string">'id'</span>];</span><br><span class="line">             $temp[<span class="string">'data1'</span>] = trim($result);</span><br><span class="line">             $new_data_arr[] = $temp;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     set_time_limit(<span class="number">0</span>);</span><br><span class="line">     $result = $Model-&gt;saveAll($new_data_arr);</span><br></pre></td></tr></table></figure>
+
+<p>这样处理这后还是会有遗漏,会有不符合要求的微信号,还需要改进.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/17/php-删除字符串中的汉字-保留数字和字母/" data-id="ck2iyv0bb000becvyt82gbe98" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/20/linux-安装oh-my-zsh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux 安装oh my zsh
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Maximum execution time of 30 seconds exceeded</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/03/Linux-系统查看某个端口的使用情况/">Linux 系统查看某个端口的使用情况</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/宝塔-mysql-无法远程连接/">宝塔 mysql 无法远程连接</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/宝塔面板下-mysql-数据库密码错误/">宝塔面板下 mysql 数据库密码错误</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/linux-安装oh-my-zsh/">linux 安装oh my zsh</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/php-删除字符串中的汉字-保留数字和字母/">php 删除字符串中的汉字,保留数字和字母</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

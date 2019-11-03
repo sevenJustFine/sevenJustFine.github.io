@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-08-04T11:36:19.716Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://www.zichu.wang/"/>
+  <updated>2019-11-03T12:23:00.748Z</updated>
+  <id>http://www.zichu.wang/</id>
   
   <author>
     <name>seven</name>
@@ -17,20 +17,222 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>20190804</title>
-    <link href="http://yoursite.com/2019/08/04/20190804/"/>
-    <id>http://yoursite.com/2019/08/04/20190804/</id>
-    <published>2019-08-04T10:01:11.000Z</published>
-    <updated>2019-08-04T11:36:19.716Z</updated>
+    <title>Linux 系统查看某个端口的使用情况</title>
+    <link href="http://www.zichu.wang/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/"/>
+    <id>http://www.zichu.wang/2019/11/03/Linux-系统查看某个端口的使用情况/</id>
+    <published>2019-11-03T12:14:58.000Z</published>
+    <updated>2019-11-03T12:23:00.748Z</updated>
     
-    <content type="html"><![CDATA[<p><code>不是迁怒</code></p>]]></content>
+    <content type="html"><![CDATA[<p>Linux 下查看某个端口的使用情况的方法 </p><ul><li>使用 netstat<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看80端口的使用情况</span><br><span class="line">netstat -tnlp | grep 80</span><br></pre></td></tr></table></figure></li></ul><blockquote><p>netsta命令的参考地址:<a href="https://man.linuxde.net/netstat" target="_blank" rel="noopener">https://man.linuxde.net/netstat</a></p></blockquote><hr><ul><li>使用 lsof<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i: 80</span><br></pre></td></tr></table></figure></li></ul><blockquote><p>lsof命令的参考地址:<a href="https://man.linuxde.net/lsof" target="_blank" rel="noopener">https://man.linuxde.net/lsof</a></p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;code&gt;不是迁怒&lt;/code&gt;&lt;/p&gt;
-
+        &lt;p&gt;Linux 下查看某个端口的使用情况的方法 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 netstat&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔 mysql 无法远程连接</title>
+    <link href="http://www.zichu.wang/2019/09/20/%E5%AE%9D%E5%A1%94-mysql-%E6%97%A0%E6%B3%95%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
+    <id>http://www.zichu.wang/2019/09/20/宝塔-mysql-无法远程连接/</id>
+    <published>2019-09-20T07:18:27.000Z</published>
+    <updated>2019-11-03T11:23:19.050Z</updated>
+    
+    <content type="html"><![CDATA[<p>宝塔下新建一个数据库,使用sqlyog无法远程连接.</p><h4 id="第一次尝试解决"><a href="#第一次尝试解决" class="headerlink" title="第一次尝试解决"></a>第一次尝试解决</h4><ul><li>权限设置为所有人,就是所有ip都可以连接</li><li>宝塔’安全’菜单,放行3306端口</li><li>云服务器安全组,防火墙添加规则放行3306端口</li></ul><h4 id="windows下使用telnet-监测服务器的端口是否开启"><a href="#windows下使用telnet-监测服务器的端口是否开启" class="headerlink" title="windows下使用telnet 监测服务器的端口是否开启"></a>windows下使用telnet 监测服务器的端口是否开启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 123.56.78.123  3306       #telnet 加ip或者域名 加 端口号</span><br></pre></td></tr></table></figure><h4 id="无法连接-所以centos7系统防火墙的问题"><a href="#无法连接-所以centos7系统防火墙的问题" class="headerlink" title="无法连接,所以centos7系统防火墙的问题"></a>无法连接,所以centos7系统防火墙的问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlunp               #查看主机监听的所有端口</span><br><span class="line">iptables-save                #查看iptables的所有规则</span><br><span class="line">iptables -nL --line-number   #按行号显示iptables规则</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">没有3306端口的规则,添加一条</span></span><br><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT   </span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">iptables -A IN_public_allow -p tcp -m tcp --dport 3306 -m conntrack --ctstate NEW,UNTRACKED -j ACCEPT</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">尝试还是不行,再次使用<span class="string">'iptables -nL --line-number'</span>查看规则,发现在我新添加的3306规则上有一条 </span></span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">按行号删除这一条</span></span><br><span class="line">iptables -D INPUT 11          #删除第11行的iptables规则,上面这条在所有规则的11行</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">再重新添加这一行,然后他就排到3306规则后面了</span></span><br><span class="line">iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br></pre></td></tr></table></figure><h4 id="再次尝试-ok"><a href="#再次尝试-ok" class="headerlink" title="再次尝试.ok"></a>再次尝试.ok</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;宝塔下新建一个数据库,使用sqlyog无法远程连接.&lt;/p&gt;
+&lt;h4 id=&quot;第一次尝试解决&quot;&gt;&lt;a href=&quot;#第一次尝试解决&quot; class=&quot;headerlink&quot; title=&quot;第一次尝试解决&quot;&gt;&lt;/a&gt;第一次尝试解决&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;权限设置为所有人,就
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔面板下 mysql 数据库密码错误</title>
+    <link href="http://www.zichu.wang/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/"/>
+    <id>http://www.zichu.wang/2019/09/20/宝塔面板下-mysql-数据库密码错误/</id>
+    <published>2019-09-20T01:45:09.000Z</published>
+    <updated>2019-09-21T01:30:55.166Z</updated>
+    
+    <content type="html"><![CDATA[<p>宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO)”,后来在宝塔使用phpmyadmin登录之后,手贱的修改了密码,之后不知道怎么操作就出错了.phpMyAdmin也登录不上了,之后所有的mysql操作也不行.</p><ul><li>百度后找到的原文地址为: <a href="https://www.cnblogs.com/ivictor/p/9243259.html" target="_blank" rel="noopener">https://www.cnblogs.com/ivictor/p/9243259.html</a></li></ul><ul><li><p>进入一个目录.vim创建一个init.sql文件.写入修改密码的sql语句,:wq 保存退出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">vim init.sql </span><br><span class="line">alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123456&apos;;</span><br></pre></td></tr></table></figure></li><li><p>使用–init-file参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/www/server/mysql/bin/mysqld_safe --init-file=/init.sql &amp;</span><br><span class="line"></span><br><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure></li><li><p>可以用比较简单的一步实现</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart --init-file=/init.sql</span><br></pre></td></tr></table></figure></li><li><p>然后就可以用宝塔后台的修改新的mysql密码</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO)”,后来在宝塔使用php
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux 安装oh my zsh</title>
+    <link href="http://www.zichu.wang/2019/09/20/linux-%E5%AE%89%E8%A3%85oh-my-zsh/"/>
+    <id>http://www.zichu.wang/2019/09/20/linux-安装oh-my-zsh/</id>
+    <published>2019-09-20T00:48:07.000Z</published>
+    <updated>2019-09-21T01:30:55.163Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>查看linux系统支持的shell</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure></li><li><p>没有zsh 就先安装zsh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zsh</span><br></pre></td></tr></table></figure></li><li><p>切换默认shell为zsh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure></li><li><p>安装oh my zsh</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure></li><li><p>使用zsh</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;查看linux系统支持的shell&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>php 删除字符串中的汉字,保留数字和字母</title>
+    <link href="http://www.zichu.wang/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/"/>
+    <id>http://www.zichu.wang/2019/09/17/php-删除字符串中的汉字-保留数字和字母/</id>
+    <published>2019-09-17T09:57:56.000Z</published>
+    <updated>2019-09-21T01:30:55.164Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要从爬虫爬取的n多字符串中获取微信号</p><p>微信号规则:</p><ul><li>微信号是微信的唯一凭证,只能设置1次</li><li>可使用6-20个字母,数字,下划线和减号</li><li>必须以字母开头(字母不区分大小写)</li><li>不支持设置中文</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$Model = <span class="keyword">new</span> Wechat(); </span><br><span class="line">     $data = $Model-&gt;select();</span><br><span class="line"></span><br><span class="line">     $new_data_arr = [];</span><br><span class="line">     <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $v) &#123;</span><br><span class="line">         $temp = [];</span><br><span class="line">         $result = preg_replace(<span class="string">'/([\x80-\xff]*)/i'</span>, <span class="string">''</span>, $v[<span class="string">'data'</span>]); <span class="comment">//删除汉字</span></span><br><span class="line">         $result = trim($result);<span class="comment">//删除空格</span></span><br><span class="line">         $result = str_replace(<span class="string">'~'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'?'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'.'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">':'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'/'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'\\'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">';'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'+'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'('</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">')'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'*'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">','</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">'%'</span>, <span class="string">''</span>, $result);</span><br><span class="line">         $result = str_replace(<span class="string">' '</span>, <span class="string">''</span>, $result);</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> ($result &amp;&amp; mb_strlen($result, <span class="string">'utf-8'</span>) &gt; <span class="number">5</span> &amp;&amp; mb_strlen($result, <span class="string">'utf-8'</span>) &lt; <span class="number">21</span>) &#123;</span><br><span class="line">             $temp[<span class="string">'id'</span>] = $v[<span class="string">'id'</span>];</span><br><span class="line">             $temp[<span class="string">'data1'</span>] = trim($result);</span><br><span class="line">             $new_data_arr[] = $temp;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     set_time_limit(<span class="number">0</span>);</span><br><span class="line">     $result = $Model-&gt;saveAll($new_data_arr);</span><br></pre></td></tr></table></figure><p>这样处理这后还是会有遗漏,会有不符合要求的微信号,还需要改进.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;需要从爬虫爬取的n多字符串中获取微信号&lt;/p&gt;
+&lt;p&gt;微信号规则:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;微信号是微信的唯一凭证,只能设置1次&lt;/li&gt;
+&lt;li&gt;可使用6-20个字母,数字,下划线和减号&lt;/li&gt;
+&lt;li&gt;必须以字母开头(字母不区分大小写)&lt;/li&gt;
+&lt;li&gt;不支持设置
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Maximum execution time of 30 seconds exceeded</title>
+    <link href="http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/"/>
+    <id>http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/</id>
+    <published>2019-09-17T09:46:04.000Z</published>
+    <updated>2019-09-21T01:30:55.155Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天用tp5框架处理使用八爪鱼爬的数据的时候 ,将数据处理然后savaAll保存数据库的时候,由于数据太多执行时间太长 ,报错..<br>如图</p><p>刚开始以为是mysql数据库的执行时间问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">;SHOW VARIABLES  WHERE Variable_name LIKE &apos;%max_execution_time%&apos;         #查询当前的max_execution_time,默认位0</span><br><span class="line"></span><br><span class="line">;SET GLOBAL MAX_EXECUTION_TIME=1000     #重新设置时间</span><br><span class="line">;SET SESSION max_execution_time=10000   #重新设置时间</span><br></pre></td></tr></table></figure><p>再次尝试还是不行,最后发现是php的最大执行时间为30s,执行超时</p><p>可以修改php.ini 文件,我这里直接在php代码里,数据库操作前加一句,设置最大执行时间为不限时.</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set_time_limit(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天用tp5框架处理使用八爪鱼爬的数据的时候 ,将数据处理然后savaAll保存数据库的时候,由于数据太多执行时间太长 ,报错..&lt;br&gt;如图&lt;/p&gt;
+&lt;p&gt;刚开始以为是mysql数据库的执行时间问题&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’</title>
+    <link href="http://www.zichu.wang/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/"/>
+    <id>http://www.zichu.wang/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/</id>
+    <published>2019-09-04T03:28:13.000Z</published>
+    <updated>2019-09-21T01:30:55.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要删除一个不用的网站目录文件夹，使用rm -rf <a href="http://www.justseven.cn" target="_blank" rel="noopener">www.justseven.cn</a> ，结果出现报错‘rm: cannot remove ‘<a href="http://www.justseven.cn/.user.ini’" target="_blank" rel="noopener">www.justseven.cn/.user.ini’</a>: Operation not permitted’。</p><p>百度获取的解决方案地址：<br><a href="https://blog.csdn.net/sinat_35861727/article/details/79040755" target="_blank" rel="noopener">https://blog.csdn.net/sinat_35861727/article/details/79040755</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd www.justseven.cn  ##进入文件夹</span><br><span class="line"></span><br><span class="line">ls -a               ##显示所有包括隐藏的文件</span><br><span class="line"></span><br><span class="line">lsattr -a           ##显示文件属性</span><br><span class="line"></span><br><span class="line">chattr -i .user.ini  ##修改文件属性，去除 ‘不得任意更动文件或目录 ’属性</span><br><span class="line"></span><br><span class="line">ls attr -a    </span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">rm -rf www.justseven.cn   ##再次删除文件夹</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;想要删除一个不用的网站目录文件夹，使用rm -rf &lt;a href=&quot;http://www.justseven.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;www.justseven.cn&lt;/a&gt; ，结果出现报错‘rm: cannot remove
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>centos服务器安装php swoole扩展</title>
+    <link href="http://www.zichu.wang/2019/09/04/centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85php-swoole%E6%89%A9%E5%B1%95/"/>
+    <id>http://www.zichu.wang/2019/09/04/centos服务器安装php-swoole扩展/</id>
+    <published>2019-09-04T02:21:18.000Z</published>
+    <updated>2019-09-21T01:30:55.157Z</updated>
+    
+    <content type="html"><![CDATA[<p>官方编译安装地址 <a href="https://github.com/swoole/swoole-wiki/blob/master/doc/1.2%20-%20%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85.md" target="_blank" rel="noopener">https://github.com/swoole/swoole-wiki/blob/master/doc/1.2%20-%20%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85.md</a></p><p>从github获取最新发行版本地址 <a href="https://github.com/swoole/swoole-src/releases" target="_blank" rel="noopener">https://github.com/swoole/swoole-src/releases</a><br>获取到的链接地址为：<a href="https://github.com/swoole/swoole-src/archive/v4.4.5.tar.gz" target="_blank" rel="noopener">https://github.com/swoole/swoole-src/archive/v4.4.5.tar.gz</a></p><ul><li><p>ssh登录服务器</p></li><li><p>下载swoole包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/swoole/swoole-src/archive/v4.4.5.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>解压</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  v4.4.5.tar.gz</span><br></pre></td></tr></table></figure><ul><li>进入文件夹 修改文件夹名字</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd swoole-src-4.4.5</span><br><span class="line">mv  swoole-src-4.4.5  swoole-src</span><br></pre></td></tr></table></figure><ul><li>使用phpize来生成编译检测脚本 </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpize</span><br></pre></td></tr></table></figure><ul><li>编译 ,这里需要注意，我的服务器安装了宝塔面板，所以php的安装路径不一样，需要用–with-php-config 指定php-config的路径</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--enable-coroutine \</span><br><span class="line">--enable-openssl  \</span><br><span class="line">--enable-http2  \</span><br><span class="line">--enable-async-redis \</span><br><span class="line">--enable-sockets \</span><br><span class="line">--enable-mysqlnd \</span><br><span class="line">--with-php-config=/www/server/php/73/bin/php-config</span><br></pre></td></tr></table></figure><ul><li>编译 安装</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure><ul><li>修改配置文件，添加扩展</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /www/server/php/73/etc</span><br><span class="line"></span><br><span class="line">vim ./php.ini</span><br></pre></td></tr></table></figure><p>在php.ini 末尾添加 extension=swoole.so ,保存退出</p><ul><li>检查是否安装成功</li></ul><p>显示php安装的模块</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -m</span><br></pre></td></tr></table></figure><p>  或者<br>获取php扩展的配置信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php --ri swoole</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;官方编译安装地址 &lt;a href=&quot;https://github.com/swoole/swoole-wiki/blob/master/doc/1.2%20-%20%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85.md&quot; target=&quot;_blank
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决</title>
+    <link href="http://www.zichu.wang/2019/08/28/hexo-github-io%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2-jQuery-is-not-defined-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <id>http://www.zichu.wang/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/</id>
+    <published>2019-08-28T03:26:47.000Z</published>
+    <updated>2019-11-03T11:23:19.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改juery的引用地址，解决问题。</p><p><img src="https://image.liqile.top/2019/08/28/9d9740d5b51da95135403dcc67d51a1e.png" alt="微信图片_20190828112750"></p><ul><li>在主题下搜索juqery的地址，找到是引用地址在 ‘themes/landscape/layout/_partial/after-footer.ejs ’文件下</li></ul><p><img src="https://image.liqile.top/2019/08/28/b043c2b3ee2b458f9a015d2b3068243b.png" alt="微信图片_201908281127501"></p><p><img src="https://image.liqile.top/2019/08/28/44c47b77d6cf2f75b5acbdf95fd82d10.png" alt="微信图片_201908281127502"></p><ul><li><p>登录 <a href="https://www.bootcdn.cn/，搜索jquery.获取一个最新版本的jqury.min.js文件地址" target="_blank" rel="noopener">https://www.bootcdn.cn/，搜索jquery.获取一个最新版本的jqury.min.js文件地址</a><br><img src="https://image.liqile.top/2019/08/28/5e9ac2a4ce01ab37df097c1fed6a606a.png" alt="微信图片_201908281127503"></p></li><li><p>修改之前的after-footer.ejs文件下的jQuery地址，这里需要注意不能使用http的地址，因为在https下面的文件是访问http需要解决跨域问题。默认是https，所以直接填写为‘//cdn.bootcss.com/jquery/3.4.1/jquery.min.js’<br><img src="https://image.liqile.top/2019/08/28/9dc04e640ae4743ccf8d3c12291936d3.png" alt="微信图片_201908281127504"></p></li><li><p>然后hexo clean  ,hexo g 之后，你会发现pulic下的其它文件的jquery地址已经修改</p></li></ul><p><img src="https://image.liqile.top/2019/08/28/4764808d382beb08edd6a8ab4af8e821.png" alt="微信图片_201908281127505"></p><ul><li>接着 hexo d 提交部署。再打开网站，会发现jquery地址已经更新，而且不会报错了。<br><img src="https://image.liqile.top/2019/08/28/5462ab0ed0ca2be4d39203b7a1a5224a.png" alt="微信图片_201908281127506"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改jue
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https</title>
+    <link href="http://www.zichu.wang/2019/08/27/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-%E4%BD%BF%E7%94%A8%E7%9A%84Let%E2%80%99s-Encrypts-%E5%AE%89%E8%A3%85%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6-%E4%BD%BF%E7%BD%91%E7%AB%99%E6%94%AF%E6%8C%81https/"/>
+    <id>http://www.zichu.wang/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/</id>
+    <published>2019-08-27T07:43:03.000Z</published>
+    <updated>2019-09-21T01:30:55.168Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="登录lets-encrypts-网站"><a href="#登录lets-encrypts-网站" class="headerlink" title="登录lets encrypts 网站"></a>登录lets encrypts 网站</h3><p>1.1 登录lets encrypts网站 点击get started</p><p><img src="https://image.liqile.top/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png" alt="微信图片_201908271606402"></p><p>1.2 选择中文</p><p><img src="https://image.liqile.top/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png" alt="微信图片_201908271606402"></p><p>1.3 我们有服务器权限 点击链接使用certbot</p><p><img src="https://image.liqile.top/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png" alt="微信图片_201908271606404"></p><h3 id="安装certbot"><a href="#安装certbot" class="headerlink" title="安装certbot"></a>安装certbot</h3><p>2.1 选择当前http网站的linux服务器和web服务器类型</p><p><img src="https://image.liqile.top/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png" alt="微信图片_201908271606405"></p><p>当前我选择nginx和CentOS</p><p><img src="https://image.liqile.top/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png" alt="1566954842(1)"></p><p>2.2 根据提示安装certbot</p><p><img src="https://image.liqile.top/2019/08/27/6cd45f70e2b629384076408358165f0e.png" alt="微信图片_201908271606406"></p><p> 2.2.1 ssh链接服务器<br> 2.2.2 开启epel。当前为centos 直接 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure><p><img src="https://image.liqile.top/2019/08/27/59023ed9c73791094972f818423b70ff.png" alt="微信图片_201908271606407"></p><p>2.2.3 开启 optional channel</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure><p>2.2.4 安装 certbot</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install certbot python2-certbot-nginx</span><br></pre></td></tr></table></figure><h3 id="使用certbot-安装证书"><a href="#使用certbot-安装证书" class="headerlink" title="使用certbot 安装证书"></a>使用certbot 安装证书</h3><p>3.1 使用命令安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure><p>因为安装了宝塔界面，会出现报错，按默认的目录没有找到nginx的配置文件</p><p><img src="https://image.liqile.top/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png" alt="b5ddb3f1c454ca8dc6c6f5dc96b93e7"></p><p>通过查询知道，应该用下面的指令,–nginx-server-root后面带上正确的nginx配置文件路径</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf</span><br></pre></td></tr></table></figure><p><img src="https://image.liqile.top/2019/08/27/e23be8f7a9acdad335839e54881d0075.png" alt="微信图片_201908271606401"></p><p>按数字选择你要安装的网站的域名</p><p>选择是否自动从http跳转到https</p><p>然后就会完成</p><p>证书安装的过程中,可能会让你输入邮箱，可以跳过邮箱：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf --register-unsafely-without-email</span><br></pre></td></tr></table></figure><p>安装完成之后，就可以测试自己的网站是否支持https</p><p>如果不能访问，可能是云服务器安全组没有开启443端口，linux服务器的443端口也需要打开</p><h3 id="卸载证书"><a href="#卸载证书" class="headerlink" title="卸载证书"></a>卸载证书</h3><p>certbot revoke  –cert-path 加证书地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot revoke  --cert-path /etc/letsencrypt/live/www.test.com/cert.pem</span><br></pre></td></tr></table></figure><p><img src="https://image.liqile.top/2019/08/27/400422406a0873a45d04413dbbd8ccad.png" alt="微信图片_20190827160640"></p><h3 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h3><p>1.cryptography TypeError: from_buffer() cannot return the address……..</p><p>解决：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall cryptography -y &amp;&amp; \</span><br><span class="line">yum -y remove python-cryptography &amp;&amp; \</span><br><span class="line">yum -y autoremove &amp;&amp; \</span><br><span class="line">pip install --upgrade cryptography</span><br></pre></td></tr></table></figure><ol start="2"><li>UnicodeDecodeError: ‘ascii’ codec can`t decode byte 0xe7 in position 14 ……</li></ol><blockquote><blockquote><p><img src="https://image.liqile.top/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png" alt="4e179ff3a1ffaae42560f34528adb37"></p></blockquote></blockquote><p> 修改 /usr/lib64/python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if sys.getdefaultencoding() != &apos;utf-8&apos;: reload(sys) sys.setdefaultencoding(&apos;utf-8&apos;)</span><br></pre></td></tr></table></figure><ol start="3"><li>ImportError: ‘pyOpenSSL’ module missing required functionality. Try upgrading to v0.14 or newer.</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;登录lets-encrypts-网站&quot;&gt;&lt;a href=&quot;#登录lets-encrypts-网站&quot; class=&quot;headerlink&quot; title=&quot;登录lets encrypts 网站&quot;&gt;&lt;/a&gt;登录lets encrypts 网站&lt;/h3&gt;&lt;p&gt;1.1 登录
       
     
     </summary>
@@ -40,10 +242,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/07/07/hello-world/"/>
-    <id>http://yoursite.com/2019/07/07/hello-world/</id>
-    <published>2019-07-07T12:38:59.920Z</published>
-    <updated>2019-07-07T12:38:59.921Z</updated>
+    <link href="http://www.zichu.wang/2019/08/07/hello-world/"/>
+    <id>http://www.zichu.wang/2019/08/07/hello-world/</id>
+    <published>2019-08-07T13:49:09.558Z</published>
+    <updated>2019-08-07T13:49:09.558Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -60,20 +262,19 @@
   </entry>
   
   <entry>
-    <title>first-draft</title>
-    <link href="http://yoursite.com/2019/07/04/first-draft/"/>
-    <id>http://yoursite.com/2019/07/04/first-draft/</id>
-    <published>2019-07-04T10:33:12.000Z</published>
-    <updated>2019-07-07T12:38:59.916Z</updated>
+    <title>php项目搭建问题记录</title>
+    <link href="http://www.zichu.wang/2019/08/07/php%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>http://www.zichu.wang/2019/08/07/php项目搭建问题记录/</id>
+    <published>2019-08-07T10:21:49.000Z</published>
+    <updated>2019-08-11T13:31:57.754Z</updated>
     
-    <content type="html"><![CDATA[<p>nothing is impossible</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><h5 id="环境"><a href="#环境" class="headerlink" title="环境:"></a>环境:</h5><p>php7.2 ,nginx </p><h5 id="错误"><a href="#错误" class="headerlink" title="错误:"></a>错误:</h5><p> <code>require_once(): Failed opening required &#39;../fun/extend.php&#39; (include_path=&#39;.:/www/server/php/72/lib/php&#39;) in   #####/index.php on line 8&quot; while reading response header from upstream</code></p><h5 id="解决"><a href="#解决" class="headerlink" title="解决:"></a>解决:</h5><p> <img src="https://raw.githubusercontent.com/sevenJustFine/image/master/20190807_php.png?token=ADXOIQ5JORM5ALOFQ45APPS5JKUUA" alt><br> <code>(图片保存在github)</code></p><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>php文件加密问题:</p><p>sg_load()函数</p><p><a href="https://www.cnblogs.com/tangxuliang/p/9401122.html(解决方案地址)" target="_blank" rel="noopener">https://www.cnblogs.com/tangxuliang/p/9401122.html(解决方案地址)</a></p><p>安装sourceguardian加密php扩展:<br><a href="https://www.sourceguardian.com/loaders/download.php" target="_blank" rel="noopener">https://www.sourceguardian.com/loaders/download.php</a></p><ul><li>下载 ixed.5.6.lin 文件(链接:<a href="https://raw.githubusercontent.com/sevenJustFine/image/master/ixed.5.6.lin?token=ADXOIQ6TPHDAB5NKAJ4GFXS5JKWFG" target="_blank" rel="noopener">https://raw.githubusercontent.com/sevenJustFine/image/master/ixed.5.6.lin?token=ADXOIQ6TPHDAB5NKAJ4GFXS5JKWFG</a>)</li><li>加到对应版本php的扩展库中(目录一般为:php/lib/php/extensions…)</li><li>在php配置文件配置扩展(目录一般为:php/etc/php.ini)<br>添加一行 extension=ixed.5.6.lin</li><li>重启web server</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;nothing is impossible&lt;/p&gt;
-
+        &lt;h3 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h3&gt;&lt;h5 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境:&quot;&gt;&lt;/a&gt;环境:&lt;/h5&gt;&lt;p&gt;php7.
       
     
     </summary>
@@ -83,10 +284,10 @@
   
   <entry>
     <title>firstArticle</title>
-    <link href="http://yoursite.com/2019/07/04/first/"/>
-    <id>http://yoursite.com/2019/07/04/first/</id>
+    <link href="http://www.zichu.wang/2019/07/04/first/"/>
+    <id>http://www.zichu.wang/2019/07/04/first/</id>
     <published>2019-07-04T10:09:22.000Z</published>
-    <updated>2019-07-07T12:38:59.918Z</updated>
+    <updated>2019-08-07T13:49:09.557Z</updated>
     
     <content type="html"><![CDATA[<p>但行好事,莫问前程</p>]]></content>
     

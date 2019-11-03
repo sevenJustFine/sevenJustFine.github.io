@@ -5,19 +5,19 @@
   
 
   
-  <title>firstArticle | 无问西东</title>
+  <title>linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’ | 无问西东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="但行好事,莫问前程">
+  <meta name="description" content="想要删除一个不用的网站目录文件夹，使用rm -rf www.justseven.cn ，结果出现报错‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’。 百度获取的解决方案地址：https://blog.csdn.net/sinat_35861727/article/details/79040755 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="firstArticle">
-<meta property="og:url" content="http://www.zichu.wang/2019/07/04/first/index.html">
+<meta property="og:title" content="linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn&#x2F;.user.ini’: Operation not permitted’">
+<meta property="og:url" content="http://www.zichu.wang/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/index.html">
 <meta property="og:site_name" content="无问西东">
-<meta property="og:description" content="但行好事,莫问前程">
+<meta property="og:description" content="想要删除一个不用的网站目录文件夹，使用rm -rf www.justseven.cn ，结果出现报错‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’。 百度获取的解决方案地址：https://blog.csdn.net/sinat_35861727/article/details/79040755 1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-07T13:49:09.557Z">
+<meta property="og:updated_time" content="2019-09-21T01:30:55.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="firstArticle">
-<meta name="twitter:description" content="但行好事,莫问前程">
+<meta name="twitter:title" content="linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn&#x2F;.user.ini’: Operation not permitted’">
+<meta name="twitter:description" content="想要删除一个不用的网站目录文件夹，使用rm -rf www.justseven.cn ，结果出现报错‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’。 百度获取的解决方案地址：https://blog.csdn.net/sinat_35861727/article/details/79040755 1">
   
     <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
   
@@ -93,10 +93,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/04/first/" class="article-date">
-  <time datetime="2019-07-04T10:09:22.000Z" itemprop="datePublished">2019-07-04</time>
+    <a href="/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/" class="article-date">
+  <time datetime="2019-09-04T03:28:13.000Z" itemprop="datePublished">2019-09-04</time>
 </a>
     
   </div>
@@ -107,7 +107,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      firstArticle
+      linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’
     </h1>
   
 
@@ -115,12 +115,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>但行好事,莫问前程</p>
-
+        <p>想要删除一个不用的网站目录文件夹，使用rm -rf <a href="http://www.justseven.cn" target="_blank" rel="noopener">www.justseven.cn</a> ，结果出现报错‘rm: cannot remove ‘<a href="http://www.justseven.cn/.user.ini’" target="_blank" rel="noopener">www.justseven.cn/.user.ini’</a>: Operation not permitted’。</p>
+<p>百度获取的解决方案地址：<br><a href="https://blog.csdn.net/sinat_35861727/article/details/79040755" target="_blank" rel="noopener">https://blog.csdn.net/sinat_35861727/article/details/79040755</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd www.justseven.cn  ##进入文件夹</span><br><span class="line"></span><br><span class="line">ls -a               ##显示所有包括隐藏的文件</span><br><span class="line"></span><br><span class="line">lsattr -a           ##显示文件属性</span><br><span class="line"></span><br><span class="line">chattr -i .user.ini  ##修改文件属性，去除 ‘不得任意更动文件或目录 ’属性</span><br><span class="line"></span><br><span class="line">ls attr -a    </span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">rm -rf www.justseven.cn   ##再次删除文件夹</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/07/04/first/" data-id="ck2iyv0aa0001ecvyeegitfqx" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/" data-id="ck2iyv0b9000aecvyvfh9p97d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,15 +130,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/07/php项目搭建问题记录/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          php项目搭建问题记录
+          Maximum execution time of 30 seconds exceeded
         
       </div>
     </a>
   
+  
+    <a href="/2019/09/04/centos服务器安装php-swoole扩展/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">centos服务器安装php swoole扩展</div>
+    </a>
   
 </nav>
 
