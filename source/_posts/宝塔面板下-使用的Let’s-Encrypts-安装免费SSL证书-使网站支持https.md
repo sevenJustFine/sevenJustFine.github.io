@@ -7,29 +7,29 @@ tags:
 
 1.1 登录lets encrypts网站 点击get started
 
-![微信图片_201908271606402](https://image.liqile.top/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png)
+![微信图片_201908271606402](https://image.li-n.cn/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png)
 
 1.2 选择中文
 
-![微信图片_201908271606402](https://image.liqile.top/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png)
+![微信图片_201908271606402](https://image.li-n.cn/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png)
 
 1.3 我们有服务器权限 点击链接使用certbot
 
-![微信图片_201908271606404](https://image.liqile.top/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png)
+![微信图片_201908271606404](https://image.li-n.cn/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png)
 
 ### 安装certbot
 2.1 选择当前http网站的linux服务器和web服务器类型
 
-![微信图片_201908271606405](https://image.liqile.top/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png)
+![微信图片_201908271606405](https://image.li-n.cn/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png)
 
 当前我选择nginx和CentOS
 
-![1566954842(1)](https://image.liqile.top/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png)
+![1566954842(1)](https://image.li-n.cn/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png)
 
 
 2.2 根据提示安装certbot
 
-![微信图片_201908271606406](https://image.liqile.top/2019/08/27/6cd45f70e2b629384076408358165f0e.png)
+![微信图片_201908271606406](https://image.li-n.cn/2019/08/27/6cd45f70e2b629384076408358165f0e.png)
  
  2.2.1 ssh链接服务器
  2.2.2 开启epel。当前为centos 直接 
@@ -38,7 +38,7 @@ tags:
  yum install epel-release
 ````
 
-![微信图片_201908271606407](https://image.liqile.top/2019/08/27/59023ed9c73791094972f818423b70ff.png)
+![微信图片_201908271606407](https://image.li-n.cn/2019/08/27/59023ed9c73791094972f818423b70ff.png)
 
 2.2.3 开启 optional channel
 
@@ -63,7 +63,7 @@ sudo certbot --nginx
 
 因为安装了宝塔界面，会出现报错，按默认的目录没有找到nginx的配置文件
 
-![b5ddb3f1c454ca8dc6c6f5dc96b93e7](https://image.liqile.top/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png)
+![b5ddb3f1c454ca8dc6c6f5dc96b93e7](https://image.li-n.cn/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png)
 
 通过查询知道，应该用下面的指令,--nginx-server-root后面带上正确的nginx配置文件路径
 ````
@@ -71,7 +71,7 @@ certbot --nginx-server-root /www/server/nginx/conf
 
 ````
 
-![微信图片_201908271606401](https://image.liqile.top/2019/08/27/e23be8f7a9acdad335839e54881d0075.png)
+![微信图片_201908271606401](https://image.li-n.cn/2019/08/27/e23be8f7a9acdad335839e54881d0075.png)
 
 按数字选择你要安装的网站的域名
 
@@ -98,7 +98,7 @@ certbot revoke  --cert-path /etc/letsencrypt/live/www.test.com/cert.pem
 ````
 
 
-![微信图片_20190827160640](https://image.liqile.top/2019/08/27/400422406a0873a45d04413dbbd8ccad.png)
+![微信图片_20190827160640](https://image.li-n.cn/2019/08/27/400422406a0873a45d04413dbbd8ccad.png)
 
 
 ### 安装中可能出现的问题
@@ -118,7 +118,7 @@ pip install --upgrade cryptography
 
 2. UnicodeDecodeError: 'ascii' codec can`t decode byte 0xe7 in position 14 ......
 
->>![4e179ff3a1ffaae42560f34528adb37](https://image.liqile.top/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png)
+>>![4e179ff3a1ffaae42560f34528adb37](https://image.li-n.cn/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png)
 
  修改 /usr/lib64/python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码
 ```` 
