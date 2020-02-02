@@ -91,6 +91,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-nginx-thinkphp5-ajax请求方法报错404" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/02/nginx-thinkphp5-ajax请求方法报错404/" class="article-date">
+  <time datetime="2020-02-02T11:39:22.000Z" itemprop="datePublished">2020-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/02/nginx-thinkphp5-ajax请求方法报错404/">nginx thinkphp5 ajax请求方法报错404</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>报错环境: nginx,thinkphp5.1</p>
+<p>nginx配置文件添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (!-e $request_filename) &#123;</span><br><span class="line">rewrite ^(.*)$ /index.php?s=/$1 last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2020/02/02/nginx-thinkphp5-ajax请求方法报错404/" data-id="ck64yjv7i0003ecvylhahtnej" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Linux-系统查看某个端口的使用情况" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/03/Linux-系统查看某个端口的使用情况/" class="article-date">
@@ -135,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/11/03/Linux-系统查看某个端口的使用情况/" data-id="ck50ybt7m0000f0vyqmtya3n2" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/11/03/Linux-系统查看某个端口的使用情况/" data-id="ck64yjv790000ecvy2tv33tdk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,13 +213,13 @@
 </ul>
 <h4 id="windows下使用telnet-监测服务器的端口是否开启"><a href="#windows下使用telnet-监测服务器的端口是否开启" class="headerlink" title="windows下使用telnet 监测服务器的端口是否开启"></a>windows下使用telnet 监测服务器的端口是否开启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 123.56.78.123  3306       #telnet 加ip或者域名 加 端口号</span><br></pre></td></tr></table></figure>
 
-<h4 id="无法连接-所以centos7系统防火墙的问题"><a href="#无法连接-所以centos7系统防火墙的问题" class="headerlink" title="无法连接,所以centos7系统防火墙的问题"></a>无法连接,所以centos7系统防火墙的问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlunp               #查看主机监听的所有端口</span><br><span class="line">iptables-save                #查看iptables的所有规则</span><br><span class="line">iptables -nL --line-number   #按行号显示iptables规则</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">没有3306端口的规则,添加一条</span></span><br><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT   </span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">iptables -A IN_public_allow -p tcp -m tcp --dport 3306 -m conntrack --ctstate NEW,UNTRACKED -j ACCEPT</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">尝试还是不行,再次使用<span class="string">'iptables -nL --line-number'</span>查看规则,发现在我新添加的3306规则上有一条 </span></span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">按行号删除这一条</span></span><br><span class="line">iptables -D INPUT 11          #删除第11行的iptables规则,上面这条在所有规则的11行</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">再重新添加这一行,然后他就排到3306规则后面了</span></span><br><span class="line">iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br></pre></td></tr></table></figure>
+<h4 id="无法连接-所以centos7系统防火墙的问题"><a href="#无法连接-所以centos7系统防火墙的问题" class="headerlink" title="无法连接,所以centos7系统防火墙的问题"></a>无法连接,所以centos7系统防火墙的问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlunp               #查看主机监听的所有端口</span><br><span class="line">iptables-save                #查看iptables的所有规则</span><br><span class="line">iptables -nL --line-number   #按行号显示iptables规则</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>没有3306端口的规则,添加一条</span><br><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT   </span><br><span class="line"><span class="meta">#</span>或者</span><br><span class="line">iptables -A IN_public_allow -p tcp -m tcp --dport 3306 -m conntrack --ctstate NEW,UNTRACKED -j ACCEPT</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>尝试还是不行,再次使用'iptables -nL --line-number'查看规则,发现在我新添加的3306规则上有一条 </span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>按行号删除这一条</span><br><span class="line">iptables -D INPUT 11          #删除第11行的iptables规则,上面这条在所有规则的11行</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>再重新添加这一行,然后他就排到3306规则后面了</span><br><span class="line">iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line"></span><br><span class="line">service iptables save        #保存</span><br><span class="line">service iptables restart     #重启服务</span><br></pre></td></tr></table></figure>
 
 <h4 id="再次尝试-ok"><a href="#再次尝试-ok" class="headerlink" title="再次尝试.ok"></a>再次尝试.ok</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/20/宝塔-mysql-无法远程连接/" data-id="ck50ybt8a000cf0vyo7k0h8jb" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/20/宝塔-mysql-无法远程连接/" data-id="ck64yjv86000decvyv7gov7hw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/20/宝塔面板下-mysql-数据库密码错误/" data-id="ck50ybt8d000df0vy8fgn9lnd" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/20/宝塔面板下-mysql-数据库密码错误/" data-id="ck64yjv7z0009ecvyi14241z8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/20/linux-安装oh-my-zsh/" data-id="ck50ybt840009f0vy4c84b2nj" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/20/linux-安装oh-my-zsh/" data-id="ck64yjv83000becvy1hw6r1wc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/17/php-删除字符串中的汉字-保留数字和字母/" data-id="ck50ybt85000af0vy0uq5xwa2" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/17/php-删除字符串中的汉字-保留数字和字母/" data-id="ck64yjv7n0008ecvykysrqrjq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" data-id="ck50ybt7u0002f0vywzzt6dlm" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" data-id="ck64yjv7g0002ecvyenfdctoz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/" data-id="ck50ybt830008f0vyrr0ye4ey" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/04/linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’/" data-id="ck64yjv7k0005ecvyq9ketk67" class="article-share-link">Share</a>
       
       
     </footer>
@@ -501,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/04/centos服务器安装php-swoole扩展/" data-id="ck50ybt7z0005f0vyebm6xhmn" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/09/04/centos服务器安装php-swoole扩展/" data-id="ck64yjv7j0004ecvyw95yzx9h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -556,104 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/" data-id="ck50ybt820007f0vywtqdr99s" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/" class="article-date">
-  <time datetime="2019-08-27T07:43:03.000Z" itemprop="datePublished">2019-08-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/">宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="登录lets-encrypts-网站"><a href="#登录lets-encrypts-网站" class="headerlink" title="登录lets encrypts 网站"></a>登录lets encrypts 网站</h3><p>1.1 登录lets encrypts网站 点击get started</p>
-<p><img src="https://image.li-n.cn/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png" alt="微信图片_201908271606402"></p>
-<p>1.2 选择中文</p>
-<p><img src="https://image.li-n.cn/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png" alt="微信图片_201908271606402"></p>
-<p>1.3 我们有服务器权限 点击链接使用certbot</p>
-<p><img src="https://image.li-n.cn/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png" alt="微信图片_201908271606404"></p>
-<h3 id="安装certbot"><a href="#安装certbot" class="headerlink" title="安装certbot"></a>安装certbot</h3><p>2.1 选择当前http网站的linux服务器和web服务器类型</p>
-<p><img src="https://image.li-n.cn/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png" alt="微信图片_201908271606405"></p>
-<p>当前我选择nginx和CentOS</p>
-<p><img src="https://image.li-n.cn/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png" alt="1566954842(1)"></p>
-<p>2.2 根据提示安装certbot</p>
-<p><img src="https://image.li-n.cn/2019/08/27/6cd45f70e2b629384076408358165f0e.png" alt="微信图片_201908271606406"></p>
-<p> 2.2.1 ssh链接服务器<br> 2.2.2 开启epel。当前为centos 直接 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://image.li-n.cn/2019/08/27/59023ed9c73791094972f818423b70ff.png" alt="微信图片_201908271606407"></p>
-<p>2.2.3 开启 optional channel</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
-
-<p>2.2.4 安装 certbot</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install certbot python2-certbot-nginx</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用certbot-安装证书"><a href="#使用certbot-安装证书" class="headerlink" title="使用certbot 安装证书"></a>使用certbot 安装证书</h3><p>3.1 使用命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
-
-<p>因为安装了宝塔界面，会出现报错，按默认的目录没有找到nginx的配置文件</p>
-<p><img src="https://image.li-n.cn/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png" alt="b5ddb3f1c454ca8dc6c6f5dc96b93e7"></p>
-<p>通过查询知道，应该用下面的指令,–nginx-server-root后面带上正确的nginx配置文件路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://image.li-n.cn/2019/08/27/e23be8f7a9acdad335839e54881d0075.png" alt="微信图片_201908271606401"></p>
-<p>按数字选择你要安装的网站的域名</p>
-<p>选择是否自动从http跳转到https</p>
-<p>然后就会完成</p>
-<p>证书安装的过程中,可能会让你输入邮箱，可以跳过邮箱：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf --register-unsafely-without-email</span><br></pre></td></tr></table></figure>
-
-<p>安装完成之后，就可以测试自己的网站是否支持https</p>
-<p>如果不能访问，可能是云服务器安全组没有开启443端口，linux服务器的443端口也需要打开</p>
-<h3 id="卸载证书"><a href="#卸载证书" class="headerlink" title="卸载证书"></a>卸载证书</h3><p>certbot revoke  –cert-path 加证书地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot revoke  --cert-path /etc/letsencrypt/live/www.test.com/cert.pem</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://image.li-n.cn/2019/08/27/400422406a0873a45d04413dbbd8ccad.png" alt="微信图片_20190827160640"></p>
-<h3 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h3><p>1.cryptography TypeError: from_buffer() cannot return the address……..</p>
-<p>解决：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall cryptography -y &amp;&amp; \</span><br><span class="line">yum -y remove python-cryptography &amp;&amp; \</span><br><span class="line">yum -y autoremove &amp;&amp; \</span><br><span class="line">pip install --upgrade cryptography</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>UnicodeDecodeError: ‘ascii’ codec can`t decode byte 0xe7 in position 14 ……</li>
-</ol>
-<blockquote>
-<blockquote>
-<p><img src="https://image.li-n.cn/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png" alt="4e179ff3a1ffaae42560f34528adb37"></p>
-</blockquote>
-</blockquote>
-<p> 修改 /usr/lib64/python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if sys.getdefaultencoding() != &apos;utf-8&apos;: reload(sys) sys.setdefaultencoding(&apos;utf-8&apos;)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>ImportError: ‘pyOpenSSL’ module missing required functionality. Try upgrading to v0.14 or newer.</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/" data-id="ck50ybt8e000ef0vy79l43xgo" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/" data-id="ck64yjv7l0006ecvyonvo8kfp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -686,7 +627,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
     </div>
   </div>
 
@@ -697,6 +638,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/02/02/nginx-thinkphp5-ajax请求方法报错404/">nginx thinkphp5 ajax请求方法报错404</a>
+          </li>
         
           <li>
             <a href="/2019/11/03/Linux-系统查看某个端口的使用情况/">Linux 系统查看某个端口的使用情况</a>
@@ -712,10 +657,6 @@
         
           <li>
             <a href="/2019/09/20/linux-安装oh-my-zsh/">linux 安装oh my zsh</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/17/php-删除字符串中的汉字-保留数字和字母/">php 删除字符串中的汉字,保留数字和字母</a>
           </li>
         
       </ul>
