@@ -7,19 +7,19 @@
   
   <title>在不用第三个变量的情况下交换两个变量的值 | 无问西东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 ###1.如果是使用第三个变量 123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   ###2.使用list 1234$a=100;$b=200;list($b,$a)=array($a,$b);">
+  <meta name="description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 1.如果是使用第三个变量123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   2.使用list1234$a=100;$b=200;list($b,$a)=array($a,$b);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在不用第三个变量的情况下交换两个变量的值">
 <meta property="og:url" content="http://www.zichu.wang/2020/08/10/在不用第三个变量的情况下交换两个变量的值/index.html">
 <meta property="og:site_name" content="无问西东">
-<meta property="og:description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 ###1.如果是使用第三个变量 123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   ###2.使用list 1234$a=100;$b=200;list($b,$a)=array($a,$b);">
+<meta property="og:description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 1.如果是使用第三个变量123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   2.使用list1234$a=100;$b=200;list($b,$a)=array($a,$b);">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://image.li-n.cn/2020/08/10/efadda845c37e50619b03132dba753a7.png">
 <meta property="og:image" content="https://image.li-n.cn/2020/08/10/f91a3e7c4b42bd88e5a30029f30e547d.png">
-<meta property="og:updated_time" content="2020-08-10T15:57:58.207Z">
+<meta property="og:updated_time" content="2020-08-10T16:01:14.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在不用第三个变量的情况下交换两个变量的值">
-<meta name="twitter:description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 ###1.如果是使用第三个变量 123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   ###2.使用list 1234$a=100;$b=200;list($b,$a)=array($a,$b);">
+<meta name="twitter:description" content="php有两个变量,在不使用第三个变量的情况下交换两个变量的值 1.如果是使用第三个变量123456$a=100;$b=200;$c=$a;   //将$a赋值给第三个变量$c$a=$b;   //将$b的值给$a;$b=$c;   //将$c,也就是之前$a的值赋值给$b;   2.使用list1234$a=100;$b=200;list($b,$a)=array($a,$b);">
 <meta name="twitter:image" content="https://image.li-n.cn/2020/08/10/efadda845c37e50619b03132dba753a7.png">
   
     <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
@@ -119,19 +119,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>php有两个变量,在不使用第三个变量的情况下交换两个变量的值</p>
-<p>###1.如果是使用第三个变量</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a=<span class="number">100</span>;</span><br><span class="line">$b=<span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">$c=$a;   <span class="comment">//将$a赋值给第三个变量$c</span></span><br><span class="line">$a=$b;   <span class="comment">//将$b的值给$a;</span></span><br><span class="line">$b=$c;   <span class="comment">//将$c,也就是之前$a的值赋值给$b;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-如果是使用第三个变量"><a href="#1-如果是使用第三个变量" class="headerlink" title="1.如果是使用第三个变量"></a>1.如果是使用第三个变量</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a=<span class="number">100</span>;</span><br><span class="line">$b=<span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">$c=$a;   <span class="comment">//将$a赋值给第三个变量$c</span></span><br><span class="line">$a=$b;   <span class="comment">//将$b的值给$a;</span></span><br><span class="line">$b=$c;   <span class="comment">//将$c,也就是之前$a的值赋值给$b;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://image.li-n.cn/2020/08/10/efadda845c37e50619b03132dba753a7.png" alt="使用第三个变量交换"></p>
-<p>###2.使用list</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a=<span class="number">100</span>;</span><br><span class="line">$b=<span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span>($b,$a)=<span class="keyword">array</span>($a,$b);</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用list"><a href="#2-使用list" class="headerlink" title="2.使用list"></a>2.使用list</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a=<span class="number">100</span>;</span><br><span class="line">$b=<span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">list</span>($b,$a)=<span class="keyword">array</span>($a,$b);</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://image.li-n.cn/2020/08/10/f91a3e7c4b42bd88e5a30029f30e547d.png" alt="使用第三个变量交换"></p>
+<p><img src="https://image.li-n.cn/2020/08/10/f91a3e7c4b42bd88e5a30029f30e547d.png" alt="使用list交换"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2020/08/10/在不用第三个变量的情况下交换两个变量的值/" data-id="ckdopa6tb000dvwvypbpwi778" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2020/08/10/在不用第三个变量的情况下交换两个变量的值/" data-id="ckdope41a000dk0vytbraw6b2" class="article-share-link">Share</a>
       
       
     </footer>
