@@ -91,6 +91,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/" class="article-date">
+  <time datetime="2019-08-28T03:26:47.000Z" itemprop="datePublished">2019-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/">hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改juery的引用地址，解决问题。</p>
+<p><img src="https://image.li-n.cn/2019/08/28/9d9740d5b51da95135403dcc67d51a1e.png" alt="微信图片_20190828112750"></p>
+<ul>
+<li>在主题下搜索juqery的地址，找到是引用地址在 ‘themes/landscape/layout/_partial/after-footer.ejs ’文件下</li>
+</ul>
+<p><img src="https://image.li-n.cn/2019/08/28/b043c2b3ee2b458f9a015d2b3068243b.png" alt="微信图片_201908281127501"></p>
+<p><img src="https://image.li-n.cn/2019/08/28/44c47b77d6cf2f75b5acbdf95fd82d10.png" alt="微信图片_201908281127502"></p>
+<ul>
+<li><p>登录 <a href="https://www.bootcdn.cn/，搜索jquery.获取一个最新版本的jqury.min.js文件地址" target="_blank" rel="noopener">https://www.bootcdn.cn/，搜索jquery.获取一个最新版本的jqury.min.js文件地址</a><br><img src="https://image.li-n.cn/2019/08/28/5e9ac2a4ce01ab37df097c1fed6a606a.png" alt="微信图片_201908281127503"></p>
+</li>
+<li><p>修改之前的after-footer.ejs文件下的jQuery地址，这里需要注意不能使用http的地址，因为在https下面的文件是访问http需要解决跨域问题。默认是https，所以直接填写为‘//cdn.bootcss.com/jquery/3.4.1/jquery.min.js’<br><img src="https://image.li-n.cn/2019/08/28/9dc04e640ae4743ccf8d3c12291936d3.png" alt="微信图片_201908281127504"></p>
+</li>
+<li><p>然后hexo clean  ,hexo g 之后，你会发现pulic下的其它文件的jquery地址已经修改</p>
+</li>
+</ul>
+<p><img src="https://image.li-n.cn/2019/08/28/4764808d382beb08edd6a8ab4af8e821.png" alt="微信图片_201908281127505"></p>
+<ul>
+<li>接着 hexo d 提交部署。再打开网站，会发现jquery地址已经更新，而且不会报错了。<br><img src="https://image.li-n.cn/2019/08/28/5462ab0ed0ca2be4d39203b7a1a5224a.png" alt="微信图片_201908281127506"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/08/28/hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决/" data-id="ckdopa6t20007vwvyw35t1xjf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/" class="article-date">
@@ -178,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/" data-id="ck64yjv88000eecvyc5qrxiij" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/08/27/宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https/" data-id="ckdopa6tf000gvwvyw8ga9l56" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/08/07/hello-world/" data-id="ck64yjv89000fecvyalwvz987" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/08/07/hello-world/" data-id="ckdopa6sz0005vwvy5yz2rvxr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/08/07/php项目搭建问题记录/" data-id="ck64yjv7m0007ecvyfbg1sdd4" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/08/07/php项目搭建问题记录/" data-id="ckdopa6t9000cvwvygj79xyjr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/07/04/first/" data-id="ck64yjv7f0001ecvy2pge2xnh" class="article-share-link">Share</a>
+      <a data-url="http://www.zichu.wang/2019/07/04/first/" data-id="ckdopa6t10006vwvylk7136g8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +401,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
     </div>
   </div>
 
@@ -357,6 +412,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/08/10/在不用第三个变量的情况下交换两个变量的值/">在不用第三个变量的情况下交换两个变量的值</a>
+          </li>
         
           <li>
             <a href="/2020/02/02/nginx-thinkphp5-ajax请求方法报错404/">nginx thinkphp5 ajax请求方法报错404</a>
@@ -372,10 +431,6 @@
         
           <li>
             <a href="/2019/09/20/宝塔面板下-mysql-数据库密码错误/">宝塔面板下 mysql 数据库密码错误</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/20/linux-安装oh-my-zsh/">linux 安装oh my zsh</a>
           </li>
         
       </ul>
