@@ -79,7 +79,7 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/sevenJustFine/sevenJustFine.github.io
+  repo: git@github.com:sevenJustFine/sevenJustFine.github.io.git
 
 #Extensions
 ## Plugins :https://hexo.io/plugins/
