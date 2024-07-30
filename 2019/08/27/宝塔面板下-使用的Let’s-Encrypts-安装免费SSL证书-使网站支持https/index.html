@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="登录lets encrypts 网站1.1 登录lets encrypts网站 点击get started  1.2 选择中文  1.3 我们有服务器权限 点击链接使用certbot  安装certbot2.1 选择当前http网站的linux服务器和web服务器类型  当前我选择nginx和CentOS  2.2 根据提示安装certbot   2.2.1 ssh链接服务器 2.2.2 开启ep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https">
+<meta property="og:url" content="http://www.zichu.wang/2019/08/27/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-%E4%BD%BF%E7%94%A8%E7%9A%84Let%E2%80%99s-Encrypts-%E5%AE%89%E8%A3%85%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6-%E4%BD%BF%E7%BD%91%E7%AB%99%E6%94%AF%E6%8C%81https/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="登录lets encrypts 网站1.1 登录lets encrypts网站 点击get started  1.2 选择中文  1.3 我们有服务器权限 点击链接使用certbot  安装certbot2.1 选择当前http网站的linux服务器和web服务器类型  当前我选择nginx和CentOS  2.2 根据提示安装certbot   2.2.1 ssh链接服务器 2.2.2 开启ep">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/6cd45f70e2b629384076408358165f0e.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/59023ed9c73791094972f818423b70ff.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/e23be8f7a9acdad335839e54881d0075.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/400422406a0873a45d04413dbbd8ccad.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png">
+<meta property="article:published_time" content="2019-08-27T07:43:03.000Z">
+<meta property="article:modified_time" content="2024-07-30T07:24:27.994Z">
+<meta property="article:author" content="seven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.li-n.cn/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQP3402314"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EQP3402314');
+  </script>
+
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-宝塔面板下-使用的Let’s-Encrypts-安装免费SSL证书-使网站支持https" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/27/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-%E4%BD%BF%E7%94%A8%E7%9A%84Let%E2%80%99s-Encrypts-%E5%AE%89%E8%A3%85%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6-%E4%BD%BF%E7%BD%91%E7%AB%99%E6%94%AF%E6%8C%81https/" class="article-date">
+  <time datetime="2019-08-27T07:43:03.000Z" itemprop="datePublished">2019-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="登录lets-encrypts-网站"><a href="#登录lets-encrypts-网站" class="headerlink" title="登录lets encrypts 网站"></a>登录lets encrypts 网站</h3><p>1.1 登录lets encrypts网站 点击get started</p>
+<p><img src="https://image.li-n.cn/2019/08/27/726adf05bbfebe562b39720d1f4074b7.png" alt="微信图片_201908271606402"></p>
+<p>1.2 选择中文</p>
+<p><img src="https://image.li-n.cn/2019/08/27/12b6abd7c606d0b78fc7862258d597c0.png" alt="微信图片_201908271606402"></p>
+<p>1.3 我们有服务器权限 点击链接使用certbot</p>
+<p><img src="https://image.li-n.cn/2019/08/27/1ec795006ec48c75ecba9665d76ad5d4.png" alt="微信图片_201908271606404"></p>
+<h3 id="安装certbot"><a href="#安装certbot" class="headerlink" title="安装certbot"></a>安装certbot</h3><p>2.1 选择当前http网站的linux服务器和web服务器类型</p>
+<p><img src="https://image.li-n.cn/2019/08/27/52471c0ea120bf24dce815a9bae64a89.png" alt="微信图片_201908271606405"></p>
+<p>当前我选择nginx和CentOS</p>
+<p><img src="https://image.li-n.cn/2019/08/28/f8104bb7cbf2d8329c27b0ccb0a81229.png" alt="1566954842(1)"></p>
+<p>2.2 根据提示安装certbot</p>
+<p><img src="https://image.li-n.cn/2019/08/27/6cd45f70e2b629384076408358165f0e.png" alt="微信图片_201908271606406"></p>
+<p> 2.2.1 ssh链接服务器<br> 2.2.2 开启epel。当前为centos 直接 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image.li-n.cn/2019/08/27/59023ed9c73791094972f818423b70ff.png" alt="微信图片_201908271606407"></p>
+<p>2.2.3 开启 optional channel</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
+
+<p>2.2.4 安装 certbot</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install certbot python2-certbot-nginx</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用certbot-安装证书"><a href="#使用certbot-安装证书" class="headerlink" title="使用certbot 安装证书"></a>使用certbot 安装证书</h3><p>3.1 使用命令安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
+
+<p>因为安装了宝塔界面，会出现报错，按默认的目录没有找到nginx的配置文件</p>
+<p><img src="https://image.li-n.cn/2019/08/27/8fa02a6eb00e4c82802b3a7d4d23cbc9.png" alt="b5ddb3f1c454ca8dc6c6f5dc96b93e7"></p>
+<p>通过查询知道，应该用下面的指令,–nginx-server-root后面带上正确的nginx配置文件路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image.li-n.cn/2019/08/27/e23be8f7a9acdad335839e54881d0075.png" alt="微信图片_201908271606401"></p>
+<p>按数字选择你要安装的网站的域名</p>
+<p>选择是否自动从http跳转到https</p>
+<p>然后就会完成</p>
+<p>证书安装的过程中,可能会让你输入邮箱，可以跳过邮箱：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx-server-root /www/server/nginx/conf --register-unsafely-without-email</span><br></pre></td></tr></table></figure>
+
+<p>安装完成之后，就可以测试自己的网站是否支持https</p>
+<p>如果不能访问，可能是云服务器安全组没有开启443端口，linux服务器的443端口也需要打开</p>
+<h3 id="卸载证书"><a href="#卸载证书" class="headerlink" title="卸载证书"></a>卸载证书</h3><p>certbot revoke  –cert-path 加证书地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot revoke  --cert-path /etc/letsencrypt/live/www.test.com/cert.pem </span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://image.li-n.cn/2019/08/27/400422406a0873a45d04413dbbd8ccad.png" alt="微信图片_20190827160640"></p>
+<h3 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h3><p>1.cryptography TypeError: from_buffer() cannot return the address……..</p>
+<p>解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall cryptography -y &amp;&amp; \</span><br><span class="line">yum -y remove python-cryptography &amp;&amp; \</span><br><span class="line">yum -y autoremove &amp;&amp; \</span><br><span class="line">pip install --upgrade cryptography</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>UnicodeDecodeError: ‘ascii’ codec can&#96;t decode byte 0xe7 in position 14 ……</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><img src="https://image.li-n.cn/2019/08/27/5931014f2dd6a9678d05e037f2bd2afd.png" alt="4e179ff3a1ffaae42560f34528adb37"></p>
+</blockquote>
+</blockquote>
+<p> 修改 &#x2F;usr&#x2F;lib64&#x2F;python2.7 下的 mimetypes.py 文件 在文件前面添加下面的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if sys.getdefaultencoding() != &#x27;utf-8&#x27;: reload(sys) sys.setdefaultencoding(&#x27;utf-8&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>ImportError: ‘pyOpenSSL’ module missing required functionality. Try upgrading to v0.14 or newer.</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/08/27/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-%E4%BD%BF%E7%94%A8%E7%9A%84Let%E2%80%99s-Encrypts-%E5%AE%89%E8%A3%85%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6-%E4%BD%BF%E7%BD%91%E7%AB%99%E6%94%AF%E6%8C%81https/" data-id="clz84b01f000gx0tw7omw37ul" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/28/hexo-github-io%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2-jQuery-is-not-defined-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/07/php%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php项目搭建问题记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/21/rocket-%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/">rocket 延迟加载</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/10/%E5%9C%A8%E4%B8%8D%E7%94%A8%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC/">在不用第三个变量的情况下交换两个变量的值</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/02/nginx-thinkphp5-ajax%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99404/">nginx thinkphp5 ajax请求方法报错404</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux 系统查看某个端口的使用情况</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

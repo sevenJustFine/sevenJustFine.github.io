@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决 | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改juery的引用地址，解决问题。   在主题下搜索juqery的地址，找到是引用地址在 ‘themes&#x2F;landscape">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决">
+<meta property="og:url" content="http://www.zichu.wang/2019/08/28/hexo-github-io%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2-jQuery-is-not-defined-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改juery的引用地址，解决问题。   在主题下搜索juqery的地址，找到是引用地址在 ‘themes&#x2F;landscape">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/9d9740d5b51da95135403dcc67d51a1e.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/b043c2b3ee2b458f9a015d2b3068243b.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/44c47b77d6cf2f75b5acbdf95fd82d10.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/5e9ac2a4ce01ab37df097c1fed6a606a.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/9dc04e640ae4743ccf8d3c12291936d3.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/4764808d382beb08edd6a8ab4af8e821.png">
+<meta property="og:image" content="https://image.li-n.cn/2019/08/28/5462ab0ed0ca2be4d39203b7a1a5224a.png">
+<meta property="article:published_time" content="2019-08-28T03:26:47.000Z">
+<meta property="article:modified_time" content="2024-07-30T07:24:27.993Z">
+<meta property="article:author" content="seven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.li-n.cn/2019/08/28/9d9740d5b51da95135403dcc67d51a1e.png">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQP3402314"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EQP3402314');
+  </script>
+
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo-github-io搭建的静态博客-jQuery-is-not-defined-问题解决" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/28/hexo-github-io%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2-jQuery-is-not-defined-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="article-date">
+  <time datetime="2019-08-28T03:26:47.000Z" itemprop="datePublished">2019-08-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo+github.io搭建的静态博客 &#39;jQuery is not defined&#39; 问题解决
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我的这个博客就是hexo+github.io搭建的，加载会很慢，F12发现cosole报错 ‘jQuery is not defined， 发现是因为有query.min.js文件加载失败。因为用的是googleapis.com的域名，可能是被和谐了，查了下，然后修改juery的引用地址，解决问题。</p>
+<p><img src="https://image.li-n.cn/2019/08/28/9d9740d5b51da95135403dcc67d51a1e.png" alt="微信图片_20190828112750"></p>
+<ul>
+<li>在主题下搜索juqery的地址，找到是引用地址在 ‘themes&#x2F;landscape&#x2F;layout&#x2F;_partial&#x2F;after-footer.ejs ’文件下</li>
+</ul>
+<p><img src="https://image.li-n.cn/2019/08/28/b043c2b3ee2b458f9a015d2b3068243b.png" alt="微信图片_201908281127501"></p>
+<p><img src="https://image.li-n.cn/2019/08/28/44c47b77d6cf2f75b5acbdf95fd82d10.png" alt="微信图片_201908281127502"></p>
+<ul>
+<li><p>登录 <a target="_blank" rel="noopener" href="https://www.bootcdn.cn/%EF%BC%8C%E6%90%9C%E7%B4%A2jquery.%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84jqury.min.js%E6%96%87%E4%BB%B6%E5%9C%B0%E5%9D%80">https://www.bootcdn.cn/，搜索jquery.获取一个最新版本的jqury.min.js文件地址</a><br><img src="https://image.li-n.cn/2019/08/28/5e9ac2a4ce01ab37df097c1fed6a606a.png" alt="微信图片_201908281127503"></p>
+</li>
+<li><p>修改之前的after-footer.ejs文件下的jQuery地址，这里需要注意不能使用http的地址，因为在https下面的文件是访问http需要解决跨域问题。默认是https，所以直接填写为‘&#x2F;&#x2F;cdn.bootcss.com&#x2F;jquery&#x2F;3.4.1&#x2F;jquery.min.js’<br><img src="https://image.li-n.cn/2019/08/28/9dc04e640ae4743ccf8d3c12291936d3.png" alt="微信图片_201908281127504"></p>
+</li>
+<li><p>然后hexo clean  ,hexo g 之后，你会发现pulic下的其它文件的jquery地址已经修改</p>
+</li>
+</ul>
+<p><img src="https://image.li-n.cn/2019/08/28/4764808d382beb08edd6a8ab4af8e821.png" alt="微信图片_201908281127505"></p>
+<ul>
+<li>接着 hexo d 提交部署。再打开网站，会发现jquery地址已经更新，而且不会报错了。<br><img src="https://image.li-n.cn/2019/08/28/5462ab0ed0ca2be4d39203b7a1a5224a.png" alt="微信图片_201908281127506"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/08/28/hexo-github-io%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2-jQuery-is-not-defined-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" data-id="clz84b01e0006x0tw8lhtbb54" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/04/centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85php-swoole%E6%89%A9%E5%B1%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          centos服务器安装php swoole扩展
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/27/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-%E4%BD%BF%E7%94%A8%E7%9A%84Let%E2%80%99s-Encrypts-%E5%AE%89%E8%A3%85%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6-%E4%BD%BF%E7%BD%91%E7%AB%99%E6%94%AF%E6%8C%81https/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">宝塔面板下 使用的Let’s Encrypts 安装免费SSL证书 使网站支持https</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/21/rocket-%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/">rocket 延迟加载</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/10/%E5%9C%A8%E4%B8%8D%E7%94%A8%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC/">在不用第三个变量的情况下交换两个变量的值</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/02/nginx-thinkphp5-ajax%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99404/">nginx thinkphp5 ajax请求方法报错404</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux 系统查看某个端口的使用情况</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

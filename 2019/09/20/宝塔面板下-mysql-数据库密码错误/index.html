@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>宝塔面板下 mysql 数据库密码错误 | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: NO)”,后来在宝塔使用phpmyadmin登录之后,手贱的修改了密码,之后不知道怎么操作就出错了.phpMyAdmin也登录不上了,之后所有的mysql操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宝塔面板下 mysql 数据库密码错误">
+<meta property="og:url" content="http://www.zichu.wang/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: NO)”,后来在宝塔使用phpmyadmin登录之后,手贱的修改了密码,之后不知道怎么操作就出错了.phpMyAdmin也登录不上了,之后所有的mysql操">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-20T01:45:09.000Z">
+<meta property="article:modified_time" content="2024-07-30T07:24:27.994Z">
+<meta property="article:author" content="seven">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQP3402314"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EQP3402314');
+  </script>
+
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-宝塔面板下-mysql-数据库密码错误" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" class="article-date">
+  <time datetime="2019-09-20T01:45:09.000Z" itemprop="datePublished">2019-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      宝塔面板下 mysql 数据库密码错误
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: NO)”,后来在宝塔使用phpmyadmin登录之后,手贱的修改了密码,之后不知道怎么操作就出错了.phpMyAdmin也登录不上了,之后所有的mysql操作也不行.</p>
+<ul>
+<li><p>百度后找到的原文地址为: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ivictor/p/9243259.html">https://www.cnblogs.com/ivictor/p/9243259.html</a></p>
+</li>
+<li><p>进入一个目录.vim创建一个init.sql文件.写入修改密码的sql语句,:wq 保存退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">vim init.sql </span><br><span class="line">alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;123456&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用–init-file参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/www/server/mysql/bin/mysqld_safe --init-file=/init.sql &amp;</span><br><span class="line"></span><br><span class="line">service mysqld restart </span><br></pre></td></tr></table></figure></li>
+<li><p>可以用比较简单的一步实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart --init-file=/init.sql</span><br></pre></td></tr></table></figure></li>
+<li><p>然后就可以用宝塔后台的修改新的mysql密码</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" data-id="clz84b01f000fx0twh1vdhwmc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/20/%E5%AE%9D%E5%A1%94-mysql-%E6%97%A0%E6%B3%95%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          宝塔 mysql 无法远程连接
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/20/linux-%E5%AE%89%E8%A3%85oh-my-zsh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux 安装oh my zsh</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/21/rocket-%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD/">rocket 延迟加载</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/10/%E5%9C%A8%E4%B8%8D%E7%94%A8%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC/">在不用第三个变量的情况下交换两个变量的值</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/02/nginx-thinkphp5-ajax%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99404/">nginx thinkphp5 ajax请求方法报错404</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux 系统查看某个端口的使用情况</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
