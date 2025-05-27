@@ -5,13 +5,17 @@
   
 
   
-  <title>归档: 2019 | 无问西东</title>
+  <title>自己搭建去除水印Iopaint | 无问西东</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="无问西东">
-<meta property="og:url" content="http://www.zichu.wang/archives/2019/page/2/index.html">
+  <meta name="description" content="1.安装Iopaintpip3安装Iopaint 1pip3 install iopaint  直接命令行测试启动 1iopaint start --model&#x3D;lama --device&#x3D;cpu --port&#x3D;8080  启动的时候会默认下载模型如果下载不了,可以自己用魔法下载再上传到默认的目录文件名为big-lama.pt 1&#x2F;root&#x2F;.cache&#x2F;torch&#x2F;hub&#x2F;checkpoints">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自己搭建去除水印Iopaint">
+<meta property="og:url" content="http://www.zichu.wang/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/index.html">
 <meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="1.安装Iopaintpip3安装Iopaint 1pip3 install iopaint  直接命令行测试启动 1iopaint start --model&#x3D;lama --device&#x3D;cpu --port&#x3D;8080  启动的时候会默认下载模型如果下载不了,可以自己用魔法下载再上传到默认的目录文件名为big-lama.pt 1&#x2F;root&#x2F;.cache&#x2F;torch&#x2F;hub&#x2F;checkpoints">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-27T14:13:42.000Z">
+<meta property="article:modified_time" content="2025-05-27T14:24:56.272Z">
 <meta property="article:author" content="seven">
 <meta name="twitter:card" content="summary">
   
@@ -103,45 +107,72 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/07/php%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  <time datetime="2019-08-07T10:21:49.000Z" itemprop="datePublished">8月 7</time>
+        <section id="main"><article id="post-自己搭建去除水印Iopaint" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/" class="article-date">
+  <time datetime="2025-05-27T14:13:42.000Z" itemprop="datePublished">2025-05-27</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/07/php%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">php项目搭建问题记录</a>
+    <h1 class="article-title" itemprop="name">
+      自己搭建去除水印Iopaint
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
+      </header>
     
-    <a class="extend prev" rel="prev" href="/archives/2019/">&amp;laquo; 上一页</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装Iopaint"><a href="#1-安装Iopaint" class="headerlink" title="1.安装Iopaint"></a>1.安装Iopaint</h3><p>pip3安装Iopaint</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install iopaint</span><br></pre></td></tr></table></figure>
+
+<p>直接命令行测试启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iopaint start --model=lama --device=cpu --port=8080</span><br></pre></td></tr></table></figure>
+
+<p>启动的时候会默认下载模型<br>如果下载不了,可以自己用魔法下载再上传到默认的目录<br>文件名为big-lama.pt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/.cache/torch/hub/checkpoints</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后网页端会监听本地的8080端口</p>
+<h3 id="2-创建systemd服务"><a href="#2-创建systemd服务" class="headerlink" title="2.创建systemd服务"></a>2.创建systemd服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/iopaint.service</span><br></pre></td></tr></table></figure>
+<p>配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=IOPaint Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">WorkingDirectory=~</span><br><span class="line">ExecStart=iopaint start --model=lama --device=cpu --port=8080</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start iopaint</span><br><span class="line">sudo systemctl enable iopaint</span><br></pre></td></tr></table></figure>
+<p>查看状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status iopaint</span><br></pre></td></tr></table></figure>
+<p>如果启动失败,监听日志</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u iopaint -xe -f</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建网站-反向代理本地8080端口-添加bash-auth-密码验证"><a href="#3-创建网站-反向代理本地8080端口-添加bash-auth-密码验证" class="headerlink" title="3.创建网站,反向代理本地8080端口,添加bash auth 密码验证"></a>3.创建网站,反向代理本地8080端口,添加bash auth 密码验证</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/" data-id="cmb6lzy870002t1tw22ke8kua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/24/android-root/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">android_root</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

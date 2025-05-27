@@ -105,6 +105,132 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-php-删除字符串中的汉字-保留数字和字母" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/" class="article-date">
+  <time datetime="2019-09-17T09:57:56.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/">php 删除字符串中的汉字,保留数字和字母</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要从爬虫爬取的n多字符串中获取微信号</p>
+<p>微信号规则:</p>
+<ul>
+<li>微信号是微信的唯一凭证,只能设置1次</li>
+<li>可使用6-20个字母,数字,下划线和减号</li>
+<li>必须以字母开头(字母不区分大小写)</li>
+<li>不支持设置中文</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$Model</span> = <span class="keyword">new</span> <span class="title class_">Wechat</span>(); </span><br><span class="line">     <span class="variable">$data</span> = <span class="variable">$Model</span>-&gt;<span class="title function_ invoke__">select</span>();</span><br><span class="line"></span><br><span class="line">     <span class="variable">$new_data_arr</span> = [];</span><br><span class="line">     <span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$v</span>) &#123;</span><br><span class="line">         <span class="variable">$temp</span> = [];</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/([\x80-\xff]*)/i&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$v</span>[<span class="string">&#x27;data&#x27;</span>]); <span class="comment">//删除汉字</span></span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$result</span>);<span class="comment">//删除空格</span></span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;~&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;:&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;(&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;)&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;%&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> (<span class="variable">$result</span> &amp;&amp; <span class="title function_ invoke__">mb_strlen</span>(<span class="variable">$result</span>, <span class="string">&#x27;utf-8&#x27;</span>) &gt; <span class="number">5</span> &amp;&amp; <span class="title function_ invoke__">mb_strlen</span>(<span class="variable">$result</span>, <span class="string">&#x27;utf-8&#x27;</span>) &lt; <span class="number">21</span>) &#123;</span><br><span class="line">             <span class="variable">$temp</span>[<span class="string">&#x27;id&#x27;</span>] = <span class="variable">$v</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line">             <span class="variable">$temp</span>[<span class="string">&#x27;data1&#x27;</span>] = <span class="title function_ invoke__">trim</span>(<span class="variable">$result</span>);</span><br><span class="line">             <span class="variable">$new_data_arr</span>[] = <span class="variable">$temp</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br><span class="line">     <span class="variable">$result</span> = <span class="variable">$Model</span>-&gt;<span class="title function_ invoke__">saveAll</span>(<span class="variable">$new_data_arr</span>);</span><br></pre></td></tr></table></figure>
+<p>这样处理这后还是会有遗漏,会有不符合要求的微信号,还需要改进.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/" data-id="clz84b01e000ax0twaji60ygb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maximum-execution-time-of-30-seconds-exceeded" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" class="article-date">
+  <time datetime="2019-09-17T09:46:04.000Z" itemprop="datePublished">2019-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/">Maximum execution time of 30 seconds exceeded</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天用tp5框架处理使用八爪鱼爬的数据的时候 ,将数据处理然后savaAll保存数据库的时候,由于数据太多执行时间太长 ,报错..<br>如图</p>
+<p>刚开始以为是mysql数据库的执行时间问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">;SHOW VARIABLES  WHERE Variable_name LIKE &#x27;%max_execution_time%&#x27;         #查询当前的max_execution_time,默认位0</span><br><span class="line"></span><br><span class="line">;SET GLOBAL MAX_EXECUTION_TIME=1000     #重新设置时间</span><br><span class="line">;SET SESSION max_execution_time=10000   #重新设置时间</span><br></pre></td></tr></table></figure>
+<p>再次尝试还是不行,最后发现是php的最大执行时间为30s,执行超时</p>
+<p>可以修改php.ini 文件,我这里直接在php代码里,数据库操作前加一句,设置最大执行时间为不限时.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" data-id="clz84b01d0004x0tw801b7ix3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/" class="article-date">
+  <time datetime="2019-09-04T03:28:13.000Z" itemprop="datePublished">2019-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/">linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想要删除一个不用的网站目录文件夹，使用rm -rf <a target="_blank" rel="noopener" href="http://www.justseven.cn/">www.justseven.cn</a> ，结果出现报错‘rm: cannot remove ‘<a target="_blank" rel="noopener" href="http://www.justseven.cn/.user.ini%E2%80%99">www.justseven.cn/.user.ini’</a>: Operation not permitted’。</p>
+<p>百度获取的解决方案地址：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35861727/article/details/79040755">https://blog.csdn.net/sinat_35861727/article/details/79040755</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd www.justseven.cn  ##进入文件夹</span><br><span class="line"></span><br><span class="line">ls -a               ##显示所有包括隐藏的文件</span><br><span class="line"></span><br><span class="line">lsattr -a           ##显示文件属性</span><br><span class="line"></span><br><span class="line">chattr -i .user.ini  ##修改文件属性，去除 ‘不得任意更动文件或目录 ’属性</span><br><span class="line"></span><br><span class="line">ls attr -a    </span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">rm -rf www.justseven.cn   ##再次删除文件夹</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/" data-id="clz84b01e0007x0tw1hsiczex" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-centos服务器安装php-swoole扩展" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/04/centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85php-swoole%E6%89%A9%E5%B1%95/" class="article-date">
@@ -416,7 +542,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
     </div>
   </div>
 
@@ -429,23 +555,23 @@
       <ul>
         
           <li>
+            <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/">自己搭建去除水印Iopaint</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/android-root/">android_root</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
+          </li>
+        
+          <li>
             <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
           </li>
         
           <li>
             <a href="/2020/08/10/%E5%9C%A8%E4%B8%8D%E7%94%A8%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC/">在不用第三个变量的情况下交换两个变量的值</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/02/nginx-thinkphp5-ajax%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99404/">nginx thinkphp5 ajax请求方法报错404</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux 系统查看某个端口的使用情况</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/20/%E5%AE%9D%E5%A1%94-mysql-%E6%97%A0%E6%B3%95%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">宝塔 mysql 无法远程连接</a>
           </li>
         
       </ul>

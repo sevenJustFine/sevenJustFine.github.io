@@ -105,6 +105,262 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-自己搭建去除水印Iopaint" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/" class="article-date">
+  <time datetime="2025-05-27T14:13:42.000Z" itemprop="datePublished">2025-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/">自己搭建去除水印Iopaint</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装Iopaint"><a href="#1-安装Iopaint" class="headerlink" title="1.安装Iopaint"></a>1.安装Iopaint</h3><p>pip3安装Iopaint</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install iopaint</span><br></pre></td></tr></table></figure>
+
+<p>直接命令行测试启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iopaint start --model=lama --device=cpu --port=8080</span><br></pre></td></tr></table></figure>
+
+<p>启动的时候会默认下载模型<br>如果下载不了,可以自己用魔法下载再上传到默认的目录<br>文件名为big-lama.pt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/.cache/torch/hub/checkpoints</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后网页端会监听本地的8080端口</p>
+<h3 id="2-创建systemd服务"><a href="#2-创建systemd服务" class="headerlink" title="2.创建systemd服务"></a>2.创建systemd服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/iopaint.service</span><br></pre></td></tr></table></figure>
+<p>配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=IOPaint Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">WorkingDirectory=~</span><br><span class="line">ExecStart=iopaint start --model=lama --device=cpu --port=8080</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start iopaint</span><br><span class="line">sudo systemctl enable iopaint</span><br></pre></td></tr></table></figure>
+<p>查看状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status iopaint</span><br></pre></td></tr></table></figure>
+<p>如果启动失败,监听日志</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u iopaint -xe -f</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建网站-反向代理本地8080端口-添加bash-auth-密码验证"><a href="#3-创建网站-反向代理本地8080端口-添加bash-auth-密码验证" class="headerlink" title="3.创建网站,反向代理本地8080端口,添加bash auth 密码验证"></a>3.创建网站,反向代理本地8080端口,添加bash auth 密码验证</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/" data-id="cmb6lzy870002t1tw22ke8kua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-root" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/05/24/android-root/" class="article-date">
+  <time datetime="2025-05-24T11:43:09.000Z" itemprop="datePublished">2025-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/05/24/android-root/">android_root</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-开启开发者模式"><a href="#1-开启开发者模式" class="headerlink" title="1.开启开发者模式"></a>1.开启开发者模式</h3><pre><code>链接点击手机系统版本号,开启开发者模式
+开启开发者模式中的允许OEM解锁
+</code></pre>
+<h3 id="2-下载Magisk"><a href="#2-下载Magisk" class="headerlink" title="2 下载Magisk"></a>2 下载Magisk</h3><p>github 地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/topjohnwu/Magisk</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-小米手机秒解锁BL"><a href="#3-小米手机秒解锁BL" class="headerlink" title="3.小米手机秒解锁BL"></a>3.小米手机秒解锁BL</h3><p>1.下载unlocktool,,网址,<a target="_blank" rel="noopener" href="http://www.unlocktool.net/">www.unlocktool.net</a></p>
+<p>2.咸鱼购买临时账号 </p>
+<p>3.手机开启开发者模式,开启OEM解锁 ,usb链接手机</p>
+<p>4.登录进入unlocktool,点击右侧CONFIG,下载安装libusb 驱动<br>选择上面的芯片品牌MEDIATEK<br> 点击,左下方的菜单 PERM | UNLOCKV BL</p>
+<p>5.先关机,再同时按开机键+音量减,进入fastboot 模式,这时候在右侧的COM接口能看到手机 </p>
+<p>6.再同时按 开机键+音量加 ,看到右侧开始有输出就是在解锁了</p>
+<h3 id="4-下载红米10A-线刷包"><a href="#4-下载红米10A-线刷包" class="headerlink" title="4.下载红米10A 线刷包"></a>4.下载红米10A 线刷包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://xiaomirom.com/download/redmi-9a-9i-9at-9a-sport-10a-10a-sport-dandelion-stable-V12.5.21.0.RCDCNXM/#china-fastboot</span><br></pre></td></tr></table></figure>
+<p>从中获取images文件夹中获取文件boot.img</p>
+<h3 id="5-修补boot-img"><a href="#5-修补boot-img" class="headerlink" title="5.修补boot.img"></a>5.修补boot.img</h3><p>上传boot.img到手机</p>
+<p>•	打开 Magisk，点击“安装” &gt; “选择并修补一个文件”，选择 boot.img；</p>
+<p>•	修补后，会生成一个 magisk_patched-xxxx.img 文件。</p>
+<h3 id="6-刷入修补后的镜像"><a href="#6-刷入修补后的镜像" class="headerlink" title="6.刷入修补后的镜像"></a>6.刷入修补后的镜像</h3><p>将magisk_patched-29000_SH1FS.img 文件上传到电脑<br>手机进入 Fastboot 模式  ,<br>在电脑终端,进入放置img文件的文件夹,然后运行： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot magisk_patched-29000_SH1FS.img</span><br></pre></td></tr></table></figure>
+<p>再重启验证是否安装成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+<p>打开magsik ,显示了版本号,则是root成功</p>
+<p>开机状态重启进入fastboot</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>双参登录测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e5589f47a5e84a1c873dbce83709d863-4752898956----dfb02eeb2c5b81d0eae4045f7dcf8300----ANDROID_52942458fbd55fbd&#x27;, requestBody &#x27;NOT SUPPORT&#x27;----DFP40694923474658F6D91DE87B2A1CC9FD2F8147EDED4A782A3C3A4700E9C3D----Cg9rdWFpc2hvdS5hcGkuc3QSoAEkYdJJ38uIUsKhAqsx-ItlDXlTJIi9gVxuJLIvDgOPmQmI6MyDjf8iyu3TxTbuvACOESZ7Zz1tIAKIf97e4Pfk9WNP6dOJUcZ8eK-4vmrnQ8WixfWZsS--O0SbopRPrWPRgzihcWFzW-7QgjANxuG6xhnrzMj_Tp7sa_s0iC5uaiAUbWlI5Pku1ZQAXQiqi-kTurxLWnTZXdsdqqEU8FC1GhJmQmJkX-pJEqgjQbtJv1UuVkwiICWRwU_RQ8MZ44YXX4PAAcGnzenga_0yx7hWzBom6szaKAUwAQ</span><br></pre></td></tr></table></figure>
+<p>安装jadx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jadx</span><br></pre></td></tr></table></figure>
+<p>mac上打开jadx图形界面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jadx-gui</span><br></pre></td></tr></table></figure>
+<p>安装apktool</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install apktool</span><br></pre></td></tr></table></figure>
+<p>反编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apktool d douyin-19-8-0.apk -o dy_src -r</span><br></pre></td></tr></table></figure>
+
+<p>修改smail 代码后再打包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apktool b dy_src -o douyin_mod.apk -r</span><br></pre></td></tr></table></figure>
+<p>添加java到环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=&quot;/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home&quot;</span><br><span class="line">export PATH=&quot;$JAVA_HOME/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>生成临时的keystore</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">keytool -genkeypair -v -keystore temp-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias temp-key</span><br></pre></td></tr></table></figure>
+
+<p>使用临时的key 给apk签名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/opt/homebrew/opt/openjdk/bin/jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 \</span><br><span class="line">  -keystore temp-keystore.jks \</span><br><span class="line">  -storepass 123456 \</span><br><span class="line">  -keypass 123456 \</span><br><span class="line">  -signedjar douyin_mod_signed.apk douyin_mod.apk temp-key</span><br></pre></td></tr></table></figure>
+<p>对apk对齐优化(可选)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zipalign -v 4 douyin_mod_signed.apk douyin_mod_aligned.apk</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<h2 id="frida"><a href="#frida" class="headerlink" title="frida"></a>frida</h2><p>安装frida</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install frida-tools</span><br></pre></td></tr></table></figure>
+
+<p>查询cpu类型</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop ro.product.cpu.abi</span><br></pre></td></tr></table></figure>
+
+<p>红米10A的cpu架构是armeabi-v7a</p>
+<p>github下载frida-server</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/frida/frida/releases</span><br><span class="line"></span><br><span class="line">frida-server-17.0.5-android-arm.xz</span><br></pre></td></tr></table></figure>
+
+<p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xz -d frida-server-17.0.5-android-arm.xz</span><br></pre></td></tr></table></figure>
+
+<p>推送到手机</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb push frida-server-17.0.5-android-arm /data/local/tmp/frida-server</span><br><span class="line">adb shell chmod 755 /data/local/tmp/frida-server</span><br><span class="line">adb shell &quot;/data/local/tmp/frida-server &amp;&quot;</span><br></pre></td></tr></table></figure>
+<p>直接adb shell “&#x2F;data&#x2F;local&#x2F;tmp&#x2F;frida-server &amp;” 会没有权限<br>在安装了magisk的情况下,使用adbshell 切换到root用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">abd shell</span><br><span class="line">su</span><br><span class="line">adb shell &quot;/data/local/tmp/frida-server &amp;&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面的已root运行frida-server的方式会问题,会报错<br>修改为安装magisk的模块,直接将frida注入<br>firda-inject的magisk的模块下载地址  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/ViRb3/magisk-frida/releases</span><br></pre></td></tr></table></figure>
+<p>确认 Frida-Server 在设备上正常运行（可跳过 frida-ps）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:27042 tcp:27042</span><br><span class="line">adb forward tcp:27043 tcp:27043</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida -U -n com.ss.android.ugc.aweme -l bypass_ssl.js</span><br></pre></td></tr></table></figure>
+<h2 id="bypass-ssl-js内容-失败-电脑上无法链接手机上frida-server"><a href="#bypass-ssl-js内容-失败-电脑上无法链接手机上frida-server" class="headerlink" title="bypass_ssl.js内容### 失败,电脑上无法链接手机上frida-server"></a>bypass_ssl.js内容<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function () &#123;</span><br><span class="line">    var X509TrustManager = Java.use(&#x27;javax.net.ssl.X509TrustManager&#x27;);</span><br><span class="line">    var SSLContext = Java.use(&#x27;javax.net.ssl.SSLContext&#x27;);</span><br><span class="line">    var TrustManager = Java.registerClass(&#123;</span><br><span class="line">        name: &#x27;dev.asd.trust.TrustManager&#x27;,</span><br><span class="line">        implements: [X509TrustManager],</span><br><span class="line">        methods: &#123;</span><br><span class="line">            checkClientTrusted: function (chain, authType) &#123;&#125;,</span><br><span class="line">            checkServerTrusted: function (chain, authType) &#123;&#125;,</span><br><span class="line">            getAcceptedIssuers: function () &#123; return []; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    var TrustManagers = [TrustManager.$new()];</span><br><span class="line">    var SSLContextInit = SSLContext.init.overload(&#x27;[Ljavax.net.ssl.KeyManager;&#x27;, &#x27;[Ljavax.net.ssl.TrustManager;&#x27;, &#x27;java.security.SecureRandom&#x27;);</span><br><span class="line">    SSLContextInit.implementation = function (keyManager, trustManager, secureRandom) &#123;</span><br><span class="line">        console.log(&#x27;Bypassing SSL Pinning&#x27;);</span><br><span class="line">        SSLContextInit.call(this, keyManager, TrustManagers, secureRandom);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>### 失败,电脑上无法链接手机上frida-server</h2><p> 下载别人修改好的libsscronet.so文件<br> 上传覆盖到抖音</p>
+<p>so文件百度网盘地址<br><a href="https://link.juejin.cn/?target=https://pan.baidu.com/s/1BuL8vtIyd34b0y60jY3qXg">https://link.juejin.cn/?target=https%3A%2F%2Fpan.baidu.com%2Fs%2F1BuL8vtIyd34b0y60jY3qXg</a><br>提取码1005</p>
+<p> 先上传到临时目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">adb push /Users/sevenli/Desktop/libsscronet.so /data/local/tmp/</span><br></pre></td></tr></table></figure>
+
+<p>查看抖音的存储路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm path com.ss.android.ugc.aweme</span><br></pre></td></tr></table></figure>
+<p>package:&#x2F;data&#x2F;app&#x2F;~~6GFRK59nqVa2mAt8HxQ3tQ&#x3D;&#x3D;&#x2F;com.ss.android.ugc.aweme-LYq5WsM6oXhCSXuDutJpvw&#x3D;&#x3D;&#x2F;base.apk</p>
+<p>再使用root 覆盖原始的so文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">adb shell</span><br><span class="line">su   # 如果需要 root 权限</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份原始文件</span></span><br><span class="line">cp /data/app/~~6GFRK59nqVa2mAt8HxQ3tQ==/com.ss.android.ugc.aweme-LYq5WsM6oXhCSXuDutJpvw==/lib/arm/libsscronet.so /data/app/~~6GFRK59nqVa2mAt8HxQ3tQ==/com.ss.android.ugc.aweme-LYq5WsM6oXhCSXuDutJpvw==/lib/arm/libsscronet.so.bak</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">覆盖替换</span></span><br><span class="line">cp /data/local/tmp/libsscronet.so /data/app/~~6GFRK59nqVa2mAt8HxQ3tQ==/com.ss.android.ugc.aweme-LYq5WsM6oXhCSXuDutJpvw==/lib/arm/libsscronet.so</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改权限</span></span><br><span class="line">chmod 755 /data/app/com.ss.android.ugc.aweme-1/lib/arm/libsscronet.so</span><br><span class="line">chown root:root /data/app/com.ss.android.ugc.aweme-1/lib/arm/libsscronet.so</span><br></pre></td></tr></table></figure>
+
+<p>重启抖音 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell am force-stop com.ss.android.ugc.aweme</span><br><span class="line">adb shell monkey -p com.ss.android.ugc.aweme -c android.intent.category.LAUNCHER 1</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="失败-抖音19-8-0能抓包了-但是版本太低了-无法登录"><a href="#失败-抖音19-8-0能抓包了-但是版本太低了-无法登录" class="headerlink" title="失败,抖音19.8.0能抓包了,但是版本太低了.无法登录"></a>失败,抖音19.8.0能抓包了,但是版本太低了.无法登录</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/05/24/android-root/" data-id="cmb6lzy860000t1twhxea3h7j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-install-socks5-on-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/05/24/install-socks5-on-ubuntu/" class="article-date">
+  <time datetime="2025-05-24T04:35:06.000Z" itemprop="datePublished">2025-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在ubuntu虚拟机上安装socks5客户端"><a href="#在ubuntu虚拟机上安装socks5客户端" class="headerlink" title="在ubuntu虚拟机上安装socks5客户端"></a>在ubuntu虚拟机上安装socks5客户端</h1><h2 id="1-安装clash-meta"><a href="#1-安装clash-meta" class="headerlink" title="1.安装clash.meta"></a>1.安装clash.meta</h2><h2 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/MetaCubeX/mihomo</span><br></pre></td></tr></table></figure></h2><h2 id="下载解压linux-amd64版本"><a href="#下载解压linux-amd64版本" class="headerlink" title="下载解压linux-amd64版本"></a>下载解压linux-amd64版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x clash</span><br><span class="line">sudo mv clash /usr/local/bin/</span><br></pre></td></tr></table></figure></h2><p>创建配置文件目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.config/clash</span><br></pre></td></tr></table></figure>
+<p>添加配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config.yaml</span><br></pre></td></tr></table></figure>
+<p>配置文件格式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mode: rule</span><br><span class="line">log-level: info</span><br><span class="line">external-ui: ui</span><br><span class="line">external-controller: 127.0.0.1:9090</span><br><span class="line"></span><br><span class="line">proxies:</span><br><span class="line">  - name: sk1</span><br><span class="line">    type: socks5</span><br><span class="line">    server: 116.31.103.35</span><br><span class="line">    port: 1212</span><br><span class="line">    username: cai123</span><br><span class="line">    password: cai123</span><br><span class="line">  - name: sk2</span><br><span class="line">    type: socks5</span><br><span class="line">    server: 116.31.103.35</span><br><span class="line">    port: 7777</span><br><span class="line">    username: cai123</span><br><span class="line">    password: cai123</span><br><span class="line"></span><br><span class="line">proxy-groups:</span><br><span class="line">  - name: auto</span><br><span class="line">    type: load-balance</span><br><span class="line">    proxies:</span><br><span class="line">      - sk1</span><br><span class="line">      - sk2</span><br><span class="line"></span><br><span class="line">rules:</span><br><span class="line">  - MATCH,auto</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-创建服务"><a href="#1-2-创建服务" class="headerlink" title="1.2 创建服务"></a>1.2 创建服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim   /etc/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
+
+<p>写入配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Clash (Mihomo) Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">Restart=always</span><br><span class="line">ExecStart=/root/.config/mihomo/clash -f /root/.config/mihomo/config.yaml</span><br><span class="line">WorkingDirectory=/root/.config/mihomo</span><br><span class="line">LimitNOFILE=4096</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>启用并启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload          # 重新加载 systemd</span><br><span class="line">sudo systemctl enable clash.service   # 设置开机自启动</span><br><span class="line">sudo systemctl start clash.service    # 启动 Clash 服务</span><br><span class="line">sudo systemctl status clash.service   # 查看运行状态</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="2-安装-Yacd（Web-UI-控制面板）"><a href="#2-安装-Yacd（Web-UI-控制面板）" class="headerlink" title="2.安装 Yacd（Web UI 控制面板）"></a>2.安装 Yacd（Web UI 控制面板）</h2><p> 在配置文件添加web ui 路径<br> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">external-ui: ui</span><br><span class="line">external-controller: 0.0.0.0:9090</span><br><span class="line">secret: &quot;&quot;</span><br></pre></td></tr></table></figure><br>控制面板的地址就是虚拟机的ip的9090端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.107.3:9090</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-在ubuntu上开启端口"><a href="#2-2-在ubuntu上开启端口" class="headerlink" title="2.2 在ubuntu上开启端口"></a>2.2 在ubuntu上开启端口</h3><p>安装ufw</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install ufw</span><br></pre></td></tr></table></figure>
+
+<p>开启防火墙</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br></pre></td></tr></table></figure>
+
+<p>开启端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 7890</span><br><span class="line">sudo ufw allow 9090</span><br><span class="line">sudo ufw allow ssh     # 开放 22</span><br><span class="line">sudo ufw allow http    # 开放 80</span><br><span class="line">sudo ufw allow https   # 开放 443</span><br></pre></td></tr></table></figure>
+<p>查看状态和开放端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status verbose</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-3-直接下载yacd的前端代码"><a href="#2-3-直接下载yacd的前端代码" class="headerlink" title="2.3 直接下载yacd的前端代码"></a>2.3 直接下载yacd的前端代码</h3><h2 id="下载地址-下载yacd-tar-xz"><a href="#下载地址-下载yacd-tar-xz" class="headerlink" title="下载地址,下载yacd.tar.xz"></a>下载地址,下载yacd.tar.xz<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://github.com/haishanh/yacd/releases</span><br></pre></td></tr></table></figure></h2><p> 将文件解压,里面有index.html文件,直接用这个目录当网站的根目录创建网站</p>
+<p> 进入网站输入 <a target="_blank" rel="noopener" href="http://192.168.107.3:9090/">http://192.168.107.3:9090</a> 和密码,进入管理界面</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/05/24/install-socks5-on-ubuntu/" data-id="cmb6lzy870001t1tweh2qdr6v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-API参数RSA加密-后端PHP解密" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/" class="article-date">
@@ -432,132 +688,6 @@
 
 
   
-    <article id="post-php-删除字符串中的汉字-保留数字和字母" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/" class="article-date">
-  <time datetime="2019-09-17T09:57:56.000Z" itemprop="datePublished">2019-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/">php 删除字符串中的汉字,保留数字和字母</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>需要从爬虫爬取的n多字符串中获取微信号</p>
-<p>微信号规则:</p>
-<ul>
-<li>微信号是微信的唯一凭证,只能设置1次</li>
-<li>可使用6-20个字母,数字,下划线和减号</li>
-<li>必须以字母开头(字母不区分大小写)</li>
-<li>不支持设置中文</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$Model</span> = <span class="keyword">new</span> <span class="title class_">Wechat</span>(); </span><br><span class="line">     <span class="variable">$data</span> = <span class="variable">$Model</span>-&gt;<span class="title function_ invoke__">select</span>();</span><br><span class="line"></span><br><span class="line">     <span class="variable">$new_data_arr</span> = [];</span><br><span class="line">     <span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$v</span>) &#123;</span><br><span class="line">         <span class="variable">$temp</span> = [];</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/([\x80-\xff]*)/i&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$v</span>[<span class="string">&#x27;data&#x27;</span>]); <span class="comment">//删除汉字</span></span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$result</span>);<span class="comment">//删除空格</span></span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;~&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;?&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;:&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;;&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;+&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;(&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;)&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;*&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;%&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line">         <span class="variable">$result</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$result</span>);</span><br><span class="line"></span><br><span class="line">         <span class="keyword">if</span> (<span class="variable">$result</span> &amp;&amp; <span class="title function_ invoke__">mb_strlen</span>(<span class="variable">$result</span>, <span class="string">&#x27;utf-8&#x27;</span>) &gt; <span class="number">5</span> &amp;&amp; <span class="title function_ invoke__">mb_strlen</span>(<span class="variable">$result</span>, <span class="string">&#x27;utf-8&#x27;</span>) &lt; <span class="number">21</span>) &#123;</span><br><span class="line">             <span class="variable">$temp</span>[<span class="string">&#x27;id&#x27;</span>] = <span class="variable">$v</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line">             <span class="variable">$temp</span>[<span class="string">&#x27;data1&#x27;</span>] = <span class="title function_ invoke__">trim</span>(<span class="variable">$result</span>);</span><br><span class="line">             <span class="variable">$new_data_arr</span>[] = <span class="variable">$temp</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br><span class="line">     <span class="variable">$result</span> = <span class="variable">$Model</span>-&gt;<span class="title function_ invoke__">saveAll</span>(<span class="variable">$new_data_arr</span>);</span><br></pre></td></tr></table></figure>
-<p>这样处理这后还是会有遗漏,会有不符合要求的微信号,还需要改进.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/17/php-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%B1%89%E5%AD%97-%E4%BF%9D%E7%95%99%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E6%AF%8D/" data-id="clz84b01e000ax0twaji60ygb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Maximum-execution-time-of-30-seconds-exceeded" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" class="article-date">
-  <time datetime="2019-09-17T09:46:04.000Z" itemprop="datePublished">2019-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/">Maximum execution time of 30 seconds exceeded</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天用tp5框架处理使用八爪鱼爬的数据的时候 ,将数据处理然后savaAll保存数据库的时候,由于数据太多执行时间太长 ,报错..<br>如图</p>
-<p>刚开始以为是mysql数据库的执行时间问题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">;SHOW VARIABLES  WHERE Variable_name LIKE &#x27;%max_execution_time%&#x27;         #查询当前的max_execution_time,默认位0</span><br><span class="line"></span><br><span class="line">;SET GLOBAL MAX_EXECUTION_TIME=1000     #重新设置时间</span><br><span class="line">;SET SESSION max_execution_time=10000   #重新设置时间</span><br></pre></td></tr></table></figure>
-<p>再次尝试还是不行,最后发现是php的最大执行时间为30s,执行超时</p>
-<p>可以修改php.ini 文件,我这里直接在php代码里,数据库操作前加一句,设置最大执行时间为不限时.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/17/Maximum-execution-time-of-30-seconds-exceeded/" data-id="clz84b01d0004x0tw801b7ix3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux 使用rm -rf 删除文件夹报错-‘rm-cannot-remove-‘www-justseven-cn-user-ini’-Operation-not-permitted’" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/" class="article-date">
-  <time datetime="2019-09-04T03:28:13.000Z" itemprop="datePublished">2019-09-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/">linux 删除文件夹报错 ‘rm: cannot remove ‘www.justseven.cn/.user.ini’: Operation not permitted’</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>想要删除一个不用的网站目录文件夹，使用rm -rf <a target="_blank" rel="noopener" href="http://www.justseven.cn/">www.justseven.cn</a> ，结果出现报错‘rm: cannot remove ‘<a target="_blank" rel="noopener" href="http://www.justseven.cn/.user.ini%E2%80%99">www.justseven.cn/.user.ini’</a>: Operation not permitted’。</p>
-<p>百度获取的解决方案地址：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35861727/article/details/79040755">https://blog.csdn.net/sinat_35861727/article/details/79040755</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd www.justseven.cn  ##进入文件夹</span><br><span class="line"></span><br><span class="line">ls -a               ##显示所有包括隐藏的文件</span><br><span class="line"></span><br><span class="line">lsattr -a           ##显示文件属性</span><br><span class="line"></span><br><span class="line">chattr -i .user.ini  ##修改文件属性，去除 ‘不得任意更动文件或目录 ’属性</span><br><span class="line"></span><br><span class="line">ls attr -a    </span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">rm -rf www.justseven.cn   ##再次删除文件夹</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.zichu.wang/2019/09/04/linux%20%E4%BD%BF%E7%94%A8rm%20-rf%20%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8A%A5%E9%94%99-%E2%80%98rm-cannot-remove-%E2%80%98www-justseven-cn-user-ini%E2%80%99-Operation-not-permitted%E2%80%99/" data-id="clz84b01e0007x0tw1hsiczex" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -581,7 +711,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
     </div>
   </div>
 
@@ -594,23 +724,23 @@
       <ul>
         
           <li>
+            <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/">自己搭建去除水印Iopaint</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/android-root/">android_root</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
+          </li>
+        
+          <li>
             <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
           </li>
         
           <li>
             <a href="/2020/08/10/%E5%9C%A8%E4%B8%8D%E7%94%A8%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC/">在不用第三个变量的情况下交换两个变量的值</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/02/nginx-thinkphp5-ajax%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%8A%A5%E9%94%99404/">nginx thinkphp5 ajax请求方法报错404</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/03/Linux-%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux 系统查看某个端口的使用情况</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/20/%E5%AE%9D%E5%A1%94-mysql-%E6%97%A0%E6%B3%95%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/">宝塔 mysql 无法远程连接</a>
           </li>
         
       </ul>
