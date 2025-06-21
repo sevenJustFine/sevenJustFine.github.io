@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>抓取nuxt.js网站并将内容转成pdf | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.直接使用python+playwright获取渲染之后html源代码 避免需要去处理js,使用flask搭建一个接口,传入url 获取源代码 12345678910111213141516171819from flask import Flask, requestfrom playwright.sync_api import sync_playwright@app.route(&amp;#x27;&#x2F;h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抓取nuxt.js网站并将内容转成pdf">
+<meta property="og:url" content="http://www.zichu.wang/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="1.直接使用python+playwright获取渲染之后html源代码 避免需要去处理js,使用flask搭建一个接口,传入url 获取源代码 12345678910111213141516171819from flask import Flask, requestfrom playwright.sync_api import sync_playwright@app.route(&amp;#x27;&#x2F;h">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-21T01:56:15.000Z">
+<meta property="article:modified_time" content="2025-06-21T02:09:53.896Z">
+<meta property="article:author" content="seven">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQP3402314"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EQP3402314');
+  </script>
+
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-抓取nuxt-js网站并将内容转成pdf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/" class="article-date">
+  <time datetime="2025-06-21T01:56:15.000Z" itemprop="datePublished">2025-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      抓取nuxt.js网站并将内容转成pdf
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-直接使用python-playwright获取渲染之后html源代码"><a href="#1-直接使用python-playwright获取渲染之后html源代码" class="headerlink" title="1.直接使用python+playwright获取渲染之后html源代码"></a>1.直接使用python+playwright获取渲染之后html源代码</h3><p> 避免需要去处理js,使用flask搭建一个接口,传入url 获取源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"><span class="keyword">from</span> playwright.sync_api <span class="keyword">import</span> sync_playwright</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/html/url&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_html</span>():</span><br><span class="line">    url = request.form.get(<span class="string">&#x27;url&#x27;</span>)</span><br><span class="line">    html = get_html_by_url(url)</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_html_by_url</span>(<span class="params">url</span>):</span><br><span class="line">    <span class="keyword">with</span> sync_playwright() <span class="keyword">as</span> p:</span><br><span class="line">        browser = p.chromium.launch(headless=<span class="literal">True</span>)</span><br><span class="line">        page = browser.new_page()</span><br><span class="line">        page.goto(url, wait_until=<span class="string">&quot;networkidle&quot;</span>)</span><br><span class="line">        html = page.content()</span><br><span class="line">        browser.close()</span><br><span class="line">        <span class="keyword">return</span> html</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">False</span>, use_reloader=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-将获取的源代码-转成pdf"><a href="#2-将获取的源代码-转成pdf" class="headerlink" title="2.将获取的源代码 转成pdf"></a>2.将获取的源代码 转成pdf</h3><h4 id="2-1-下载支持汉字的字体文件"><a href="#2-1-下载支持汉字的字体文件" class="headerlink" title="2.1 下载支持汉字的字体文件"></a>2.1 下载支持汉字的字体文件</h4><p>下载字体是为了避免出现乱码<br><a target="_blank" rel="noopener" href="https://fonts.google.com/?lang=zh_Hans">https://fonts.google.com/?lang=zh_Hans</a><br>从下载的字体包中选择一个上传到本地,我选择了<br>NotoSerifSC-Regular.ttf</p>
+<h4 id="2-2-php安装扩展"><a href="#2-2-php安装扩展" class="headerlink" title="2.2 php安装扩展"></a>2.2 php安装扩展</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require barryvdh/laravel-dompdf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">use</span> <span class="title">Barryvdh</span>\<span class="title">DomPDF</span>\<span class="title">Facade</span>\<span class="title">Pdf</span>;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">QL</span>\<span class="title">QueryList</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">html2PDF</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$html</span> = <span class="variable">$data</span>-&gt;content;</span><br><span class="line">        <span class="comment">//处理懒加载的图片</span></span><br><span class="line">        <span class="variable">$ql</span> = <span class="title class_">QueryList</span>::<span class="title function_ invoke__">html</span>(<span class="variable">$html</span>);</span><br><span class="line">        <span class="variable">$ql</span>-&gt;<span class="title function_ invoke__">find</span>(<span class="string">&#x27;img&#x27;</span>)-&gt;<span class="title function_ invoke__">each</span>(function (<span class="variable">$item</span>) &#123;</span><br><span class="line">            <span class="variable">$data_src</span> = <span class="variable">$item</span>-&gt;<span class="title function_ invoke__">attr</span>(<span class="string">&#x27;data-src&#x27;</span>);</span><br><span class="line">            <span class="variable">$src</span> = <span class="variable">$item</span>-&gt;<span class="title function_ invoke__">attr</span>(<span class="string">&#x27;src&#x27;</span>);</span><br><span class="line">            <span class="comment">//去除?后的内容</span></span><br><span class="line">            <span class="variable">$data_src</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$data_src</span>, <span class="number">0</span>, <span class="title function_ invoke__">strrpos</span>(<span class="variable">$data_src</span>, <span class="string">&#x27;?&#x27;</span>));</span><br><span class="line">            <span class="variable">$src</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$src</span>, <span class="number">0</span>, <span class="title function_ invoke__">strrpos</span>(<span class="variable">$src</span>, <span class="string">&#x27;?&#x27;</span>));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$src</span> != <span class="variable">$data_src</span>) &#123;</span><br><span class="line">                <span class="variable">$item</span>-&gt;<span class="title function_ invoke__">attr</span>(<span class="string">&#x27;src&#x27;</span>, <span class="variable">$data_src</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="variable">$html</span> = <span class="variable">$ql</span>-&gt;<span class="title function_ invoke__">getHtml</span>();</span><br><span class="line">        <span class="variable">$html</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;&amp;nbsp;&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="variable">$html</span>); <span class="comment">// 替换 HTML 中的&amp;nbsp;</span></span><br><span class="line">        <span class="variable">$html</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/\x&#123;00A0&#125;/u&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="variable">$html</span>); <span class="comment">// 替换 Unicode 不可见空格</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//指定字体避免乱码</span></span><br><span class="line">        <span class="comment">// 加字体样式</span></span><br><span class="line">        <span class="variable">$style</span> = <span class="string">&#x27;</span></span><br><span class="line"><span class="string">    &lt;style&gt;</span></span><br><span class="line"><span class="string">        @font-face &#123;</span></span><br><span class="line"><span class="string">            font-family: &quot;Noto_Serif_SC&quot;;</span></span><br><span class="line"><span class="string">            src: url(&quot;&#x27;</span> . <span class="title function_ invoke__">storage_path</span>(<span class="string">&#x27;fonts/NotoSerifSC-Regular.ttf&#x27;</span>) . <span class="string">&#x27;&quot;);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        body &#123;</span></span><br><span class="line"><span class="string">            font-family: &quot;Noto_Serif_SC&quot;, DejaVu Sans, sans-serif;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        p &#123; line-height: 1.5; font-size: 14px; &#125;</span></span><br><span class="line"><span class="string">    &lt;/style&gt;</span></span><br><span class="line"><span class="string">&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$html</span> = <span class="variable">$style</span> . <span class="variable">$html</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pdf</span> = <span class="title class_">Pdf</span>::<span class="title function_ invoke__">loadHTML</span>(<span class="variable">$html</span>, <span class="string">&#x27;UTF-8&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$cate_id</span> = <span class="variable">$data</span>-&gt;cate_id;</span><br><span class="line">        <span class="variable">$cate</span> = <span class="title class_">Db</span>::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;cate&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="variable">$cate_id</span>)-&gt;<span class="title function_ invoke__">first</span>();</span><br><span class="line">        <span class="variable">$cate_name</span> = <span class="variable">$cate</span>-&gt;name;</span><br><span class="line">        <span class="variable">$relativePath</span> = <span class="string">&#x27;pdf/&#x27;</span> . <span class="variable">$cate_name</span> . <span class="string">&#x27;/&#x27;</span> . <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;姓名：&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$data</span>-&gt;title) . <span class="string">&#x27;.pdf&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 确保目录存在</span></span><br><span class="line">        <span class="title class_">Storage</span>::<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;public&#x27;</span>)-&gt;<span class="title function_ invoke__">makeDirectory</span>(<span class="string">&#x27;pdf&#x27;</span>);</span><br><span class="line">        <span class="comment">// 保存 PDF 文件到指定路径</span></span><br><span class="line">        <span class="variable">$re</span> = <span class="title class_">Storage</span>::<span class="title function_ invoke__">disk</span>(<span class="string">&#x27;public&#x27;</span>)-&gt;<span class="title function_ invoke__">put</span>(<span class="variable">$relativePath</span>, <span class="variable">$pdf</span>-&gt;<span class="title function_ invoke__">output</span>());</span><br><span class="line">        <span class="title function_ invoke__">dump</span>(<span class="string">&quot;<span class="subst">$cate_name</span>,<span class="subst">$data</span>-&gt;title,<span class="subst">$re</span>&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/" data-id="cmc5lqz9t00003htw53h6fjxy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自己搭建去除水印Iopaint</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/">抓取nuxt.js网站并将内容转成pdf</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/">自己搭建去除水印Iopaint</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/android-root/">android_root</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
