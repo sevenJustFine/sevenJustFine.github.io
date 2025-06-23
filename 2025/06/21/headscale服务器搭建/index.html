@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>headscale服务器搭建 | 无问西东</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、安装 Headscale（推荐使用二进制方式）12345678910111213# 1. 安装依赖sudo apt updatesudo apt install curl unzip sqlite3 -y# 2. 下载最新版 Headscale（从 GitHub）curl -L https:&#x2F;&#x2F;github.com&#x2F;juanfont&#x2F;headscale&#x2F;releases&#x2F;latest&#x2F;down">
+<meta property="og:type" content="article">
+<meta property="og:title" content="headscale服务器搭建">
+<meta property="og:url" content="http://www.zichu.wang/2025/06/21/headscale%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="无问西东">
+<meta property="og:description" content="一、安装 Headscale（推荐使用二进制方式）12345678910111213# 1. 安装依赖sudo apt updatesudo apt install curl unzip sqlite3 -y# 2. 下载最新版 Headscale（从 GitHub）curl -L https:&#x2F;&#x2F;github.com&#x2F;juanfont&#x2F;headscale&#x2F;releases&#x2F;latest&#x2F;down">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-21T03:27:25.000Z">
+<meta property="article:modified_time" content="2025-06-23T06:58:05.008Z">
+<meta property="article:author" content="seven">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="无问西东" type="application/atom+xml">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--自定义favicon图标-->
+  <link rel="icon" type="image/x-icon" href="https://image.liqile.top/2019/08/30/89ed98b0a833b0953d09dc13e3245d3a.png">
+
+  <!--百度统计代码-->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?380a6a87aaa3c5dc605484d089e3bd4d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQP3402314"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EQP3402314');
+  </script>
+
+
+  <!--百度自动推送-->
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">无问西东</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.zichu.wang"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-headscale服务器搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/06/21/headscale%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2025-06-21T03:27:25.000Z" itemprop="datePublished">2025-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      headscale服务器搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、安装-Headscale（推荐使用二进制方式）"><a href="#一、安装-Headscale（推荐使用二进制方式）" class="headerlink" title="一、安装 Headscale（推荐使用二进制方式）"></a>一、安装 Headscale（推荐使用二进制方式）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 安装依赖</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install curl unzip sqlite3 -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 下载最新版 Headscale（从 GitHub）</span></span><br><span class="line">curl -L https://github.com/juanfont/headscale/releases/latest/download/headscale_amd64 -o /usr/local/bin/headscale</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3. 添加执行权限</span></span><br><span class="line">chmod +x /usr/local/bin/headscale</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4. 验证</span></span><br><span class="line">headscale version</span><br></pre></td></tr></table></figure>
+
+<p>或者直接从github下载再上传到&#x2F;usr&#x2F;local&#x2F;bin<br><a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale/releases">https://github.com/juanfont/headscale/releases</a></p>
+<h2 id="2-创建headscale的配置文件"><a href="#2-创建headscale的配置文件" class="headerlink" title="2.创建headscale的配置文件"></a>2.创建headscale的配置文件</h2><p><a target="_blank" rel="noopener" href="https://headscale.net/stable/ref/configuration/#__tabbed_1_1">https://headscale.net/stable/ref/configuration/#__tabbed_1_1</a></p>
+<p>示例配置文件地址<br><a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale/blob/v0.26.1/config-example.yaml">https://github.com/juanfont/headscale/blob/v0.26.1/config-example.yaml</a></p>
+<p>将配置文件放在&#x2F;etc&#x2F;headscale&#x2F;config.yaml<br>修改其中的server_url 为自建服务的域名,如hs.xxxx.com</p>
+<h2 id="3-创建服务启动headscale"><a href="#3-创建服务启动headscale" class="headerlink" title="3.创建服务启动headscale"></a>3.创建服务启动headscale</h2><p>在&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;中创建配置文件headscale.service</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Headscale coordination server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/headscale serve --config /etc/headscale/config.yaml</span><br><span class="line">WorkingDirectory=/var/lib/headscale</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=5s</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>启动命令 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable --now headscale</span><br><span class="line">systemctl start headscale</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-在hs-xxxx-com域名中反向代理本地的8080端口"><a href="#4-在hs-xxxx-com域名中反向代理本地的8080端口" class="headerlink" title="4.在hs.xxxx.com域名中反向代理本地的8080端口"></a>4.在hs.xxxx.com域名中反向代理本地的8080端口</h2><p>可以直接在bt面板中添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PROXY-START/</span></span><br><span class="line"></span><br><span class="line">location ^~ /</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">    proxy_set_header Host 127.0.0.1;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection $connection_upgrade;</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    # proxy_hide_header Upgrade;</span><br><span class="line"></span><br><span class="line">    add_header X-Cache $upstream_cache_status;</span><br><span class="line"></span><br><span class="line">    #Set Nginx Cache</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    set $static_filegP1e2FBI 0;</span><br><span class="line">    if ( $uri ~* &quot;\.(gif|png|jpg|css|js|woff|woff2)$&quot; )</span><br><span class="line">    &#123;</span><br><span class="line">    	set $static_filegP1e2FBI 1;</span><br><span class="line">    	expires 1m;</span><br><span class="line">        &#125;</span><br><span class="line">    if ( $static_filegP1e2FBI = 0 )</span><br><span class="line">    &#123;</span><br><span class="line">    add_header Cache-Control no-cache;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PROXY-END/</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="部署自己derp服务"><a href="#部署自己derp服务" class="headerlink" title="部署自己derp服务"></a>部署自己derp服务</h2><h3 id="使用golang编译derper"><a href="#使用golang编译derper" class="headerlink" title="使用golang编译derper"></a>使用golang编译derper</h3><p>安装golang<br>Debian&#x2F;Ubuntu：  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y golang</span><br></pre></td></tr></table></figure>
+<p>CentOS  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y golang</span><br></pre></td></tr></table></figure>
+<p>使用git 领取源码并构建</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tailscale/tailscale.git</span><br><span class="line">cd tailscale/cmd/derper</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
+<p>成功后,会生成一个可执行的文件 derper</p>
+<h3 id="使用systemd-服务启动derper"><a href="#使用systemd-服务启动derper" class="headerlink" title="使用systemd 服务启动derper"></a>使用systemd 服务启动derper</h3><p> 创建配置文件&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;derper.service</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=DERP relay server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/derper \</span><br><span class="line">  --hostname=derp.xxxx.com \</span><br><span class="line">  --certdir=/www/server/panel/vhost/cert/derp.xxxx.com \</span><br><span class="line">  --a=:3443 \</span><br><span class="line">  --http-port=3080 \</span><br><span class="line">  --stun</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>启动derper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable --now derper</span><br><span class="line">systemctl start derper</span><br></pre></td></tr></table></figure>
+
+<p>创建一个网站 derp.xxxx.com<br>在网站的根目录下创建一个derp.json的配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;Regions&quot;: &#123;</span><br><span class="line">    &quot;900&quot;: &#123;</span><br><span class="line">      &quot;RegionID&quot;: 900,</span><br><span class="line">      &quot;RegionCode&quot;: &quot;mt_derp&quot;,</span><br><span class="line">      &quot;RegionName&quot;:&quot;China&quot;,</span><br><span class="line">      &quot;Nodes&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;Name&quot;: &quot;1&quot;,</span><br><span class="line">          &quot;RegionID&quot;: 900,</span><br><span class="line">          &quot;HostName&quot;: &quot;derp2.xxxx.com&quot;,</span><br><span class="line">          &quot;IPv4&quot;: &quot;xx.xxx.xxx.xx&quot;,</span><br><span class="line">          &quot;IPv6&quot;: &quot;2001:db8::1&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>derp网站添加伪静态中配置  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location =/derp.json &#123;</span><br><span class="line">  root /www/wwwroot/derp.xxxx.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location  =/derpmap/default &#123;</span><br><span class="line">  default_type application/json;</span><br><span class="line">  alias /www/wwwroot/derp.xxxx.com/derp.json;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>derp网站添加反向代理本地3443端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PROXY-START/</span></span><br><span class="line"></span><br><span class="line">location ^~ /</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:3443;</span><br><span class="line">    proxy_set_header Host 127.0.0.1;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection $connection_upgrade;</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    # proxy_hide_header Upgrade;</span><br><span class="line"></span><br><span class="line">    add_header X-Cache $upstream_cache_status;</span><br><span class="line"></span><br><span class="line">    #Set Nginx Cache</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    set $static_file0D4f5j1b 0;</span><br><span class="line">    if ( $uri ~* &quot;\.(gif|png|jpg|css|js|woff|woff2)$&quot; )</span><br><span class="line">    &#123;</span><br><span class="line">    	set $static_file0D4f5j1b 1;</span><br><span class="line">    	expires 1m;</span><br><span class="line">        &#125;</span><br><span class="line">    if ( $static_file0D4f5j1b = 0 )</span><br><span class="line">    &#123;</span><br><span class="line">    add_header Cache-Control no-cache;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PROXY-END/</span></span><br></pre></td></tr></table></figure>
+
+<p>修改&#x2F;etc&#x2F;headscale&#x2F;config.yaml的<br>在derp下urls 中添加 <a target="_blank" rel="noopener" href="https://derp.xxxx.com/derp.json">https://derp.xxxx.com/derp.json</a></p>
+<p>重启headscale</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart headscale</span><br></pre></td></tr></table></figure>
+
+<p>验证derp服务是否已经安装成功<br>在安装了tailscale 并登录了自建的服务的本地命令行运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale netcheck</span><br></pre></td></tr></table></figure>
+<p>结果类似</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Report:</span><br><span class="line">	* Time: 2025-06-23T06:39:37.609746Z</span><br><span class="line">	* UDP: false</span><br><span class="line">	* IPv4: (no addr found)</span><br><span class="line">	* IPv6: no, but OS has support</span><br><span class="line">	* MappingVariesByDestIP:</span><br><span class="line">	* PortMapping:</span><br><span class="line">	* CaptivePortal: false</span><br><span class="line">	* Nearest DERP: China</span><br><span class="line">	* DERP latency:</span><br><span class="line">		- mt_derp2: 10.5ms  (China)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="headscale-后台管理页面"><a href="#headscale-后台管理页面" class="headerlink" title="headscale 后台管理页面"></a>headscale 后台管理页面</h2><p>项目地址:<br><a target="_blank" rel="noopener" href="https://github.com/gurucomputing/headscale-ui">https://github.com/gurucomputing/headscale-ui</a></p>
+<p>下载之后上传解压到&#x2F;www&#x2F;wwwroot&#x2F;headscale_ui&#x2F;web</p>
+<p>在hs.xxxx.com的网站中配置伪静态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">location /web &#123;</span><br><span class="line">        alias /www/wwwroot/headscale_ui/web;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>然后访问<a target="_blank" rel="noopener" href="https://hs.xxxx.com/web">https://hs.xxxx.com/web</a></p>
+<p>需要先在setting 中填入apikey   </p>
+<p>在安装headscale的服务器上执行命令创建apikey</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">headscale apikeys create</span><br></pre></td></tr></table></figure>
+<p>填入apikey,然后保存</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2025/06/21/headscale%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" data-id="cmc8r10640000xptwbpan4q9l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">抓取nuxt.js网站并将内容转成pdf</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/06/21/headscale%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/">headscale服务器搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/">抓取nuxt.js网站并将内容转成pdf</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0Iopaint/">自己搭建去除水印Iopaint</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/android-root/">android_root</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 seven<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      <!--这一段是不蒜子的访问量统计代码-->
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+            <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

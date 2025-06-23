@@ -105,6 +105,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-宝塔面板下-mysql-数据库密码错误" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" class="article-date">
+  <time datetime="2019-09-20T01:45:09.000Z" itemprop="datePublished">2019-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/">宝塔面板下 mysql 数据库密码错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>宝塔下的mysql安装后,用ssh工具连接之后使用myql -uroot 登录会报错”ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: NO)”,后来在宝塔使用phpmyadmin登录之后,手贱的修改了密码,之后不知道怎么操作就出错了.phpMyAdmin也登录不上了,之后所有的mysql操作也不行.</p>
+<ul>
+<li><p>百度后找到的原文地址为: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ivictor/p/9243259.html">https://www.cnblogs.com/ivictor/p/9243259.html</a></p>
+</li>
+<li><p>进入一个目录.vim创建一个init.sql文件.写入修改密码的sql语句,:wq 保存退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">vim init.sql </span><br><span class="line">alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;123456&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用–init-file参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/www/server/mysql/bin/mysqld_safe --init-file=/init.sql &amp;</span><br><span class="line"></span><br><span class="line">service mysqld restart </span><br></pre></td></tr></table></figure></li>
+<li><p>可以用比较简单的一步实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart --init-file=/init.sql</span><br></pre></td></tr></table></figure></li>
+<li><p>然后就可以用宝塔后台的修改新的mysql密码</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.zichu.wang/2019/09/20/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E4%B8%8B-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF/" data-id="clz84b01f000fx0twh1vdhwmc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux-安装oh-my-zsh" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/20/linux-%E5%AE%89%E8%A3%85oh-my-zsh/" class="article-date">
@@ -607,6 +656,10 @@
       <ul>
         
           <li>
+            <a href="/2025/06/21/headscale%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/">headscale服务器搭建</a>
+          </li>
+        
+          <li>
             <a href="/2025/06/21/%E6%8A%93%E5%8F%96nuxt-js%E7%BD%91%E7%AB%99%E5%B9%B6%E5%B0%86%E5%86%85%E5%AE%B9%E8%BD%AC%E6%88%90pdf/">抓取nuxt.js网站并将内容转成pdf</a>
           </li>
         
@@ -620,10 +673,6 @@
         
           <li>
             <a href="/2025/05/24/install-socks5-on-ubuntu/">install_socks5_on_ubuntu</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/13/API%E5%8F%82%E6%95%B0RSA%E5%8A%A0%E5%AF%86-%E5%90%8E%E7%AB%AFPHP%E8%A7%A3%E5%AF%86/">RSA密钥对 生成</a>
           </li>
         
       </ul>
